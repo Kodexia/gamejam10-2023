@@ -25,6 +25,7 @@ public interface IFlower
 public class Flower : IFlower
 {
     public FlowerType Type { get; private set; }
+
     public int Health { get; set; }
     public float Radius { get; set; }
 
