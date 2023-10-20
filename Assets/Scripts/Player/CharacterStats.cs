@@ -7,6 +7,9 @@ public class CharacterStats : MonoBehaviour
     [field: Header("Player Variables")]
     [field: SerializeField] public float movementSpeed { get; private set; } = 10f;
     [field: SerializeField] public float maxHealth { get; private set; } = 10f;
+    [field: SerializeField] public float zoneDamageHealDelay { get; private set; } = 1f;
+    [field: SerializeField] public float outsideZoneDamage { get; private set; } = 1f;
+    [field: SerializeField] public float insideZoneHeal { get; private set; } = 0.25f;
     public float currentHealth { get; private set; } = 10f;
 
     [field: Header("TMP Variables -> Move to GameManager in the future!")]
@@ -28,5 +31,13 @@ public class CharacterStats : MonoBehaviour
     {
         Debug.Log("You died!");
         Destroy(gameObject);
+    }
+    
+    public void Heal(float heal)
+    {
+        currentHealth += heal;
+
+        if (currentHealth >= maxHealth)
+            currentHealth = maxHealth;
     }
 }
