@@ -6,6 +6,7 @@ using UnityEngine;
 public class BudScript : MonoBehaviour
 {
     [SerializeField] float radius = 20f;
+    [SerializeField] GameObject flowerObject;
     [SerializeField] FlowerType type;
 
     public Flower flower;
@@ -14,7 +15,7 @@ public class BudScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        flower = new Flower(type, radius);
+        flower = new Flower(flowerObject, type, radius);
     }
 
     // Update is called once per frame

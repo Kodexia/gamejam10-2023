@@ -2,29 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class MainFlowerScript : MonoBehaviour
 {
     [SerializeField] float radius = 20f;
     [SerializeField] FlowerType type;
+    [SerializeField] GameObject flowerObject;
 
     public Flower flower;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-        flower = new Flower(type, radius);
+        flower = new Flower(flowerObject, type, radius);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // check for collision
-        //  player - water
-        //  
-        
 
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Player has collided with the flower!");
+        }
     }
     private void OnDrawGizmosSelected()
     {
