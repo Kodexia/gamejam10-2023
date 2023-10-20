@@ -23,7 +23,12 @@ public class MainFlowerScript : MonoBehaviour
         // check for collision
         //  player - water
         //  
+        
 
-
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(transform.position, radius);
     }
 }

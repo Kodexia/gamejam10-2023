@@ -33,7 +33,6 @@ public class Flower : IFlower
         this.Type = type;
         this.Health = 100;
         this.Radius = radius;
-
     }
 
     public void TakeDamage(int amount)
