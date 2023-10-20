@@ -1,14 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Runtime.CompilerServices;
 using UnityEditor.SceneTemplate;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterStats))]
 public class CharacterMovement : MonoBehaviour
 {
     CharacterStats stats;
     Vector3 movePosition;
+    public Action<string> onEnemyTarget;
     void Start()
     {
         stats = GetComponent<CharacterStats>();
@@ -28,9 +30,8 @@ public class CharacterMovement : MonoBehaviour
             // Checker, if you hit an enemy
             RaycastHit2D clickRaycast = Physics2D.Raycast(mousePositionInWorld, Vector3.forward * 50, 50);
             if (clickRaycast.collider != null)
-                if (clickRaycast.collider.CompareTag("Enemy"))
-                    Debug.Log(clickRaycast.collider.name);
-                    // Hit an enemy
+                if (clickRaycast.collider.CompareTag(stats.enemyTag))
+                    onEnemyTarget?.Invoke(clickRaycast.collider.name);
         }
 
         // Move, if you have a point to go

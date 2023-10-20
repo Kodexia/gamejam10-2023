@@ -40,4 +40,10 @@ public class MainFlowerScript : MonoBehaviour
     {
         flower.ShootOutBud(FlowerType.Economic, new Vector2(1, 1), flowerBudPrefab);
     }
+    
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(transform.position, radius);
+    }
 }
