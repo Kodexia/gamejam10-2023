@@ -6,13 +6,14 @@ public class MainFlowerScript : MonoBehaviour
 {
     [SerializeField] float radius = 20f;
     [SerializeField] FlowerType type;
+    [SerializeField] GameObject flowerObject;
 
     public Flower flower;
 
 
     void Start()
     {
-        flower = new Flower(type, radius);
+        flower = new Flower(flowerObject, type, radius);
     }
 
     void Update()
@@ -20,16 +21,11 @@ public class MainFlowerScript : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player has collided with the flower!");
-        }
-
-        else if (other.gameObject.CompareTag("Water"))
-        {
-            Debug.Log("Player has collected water!");
         }
     }
 }
