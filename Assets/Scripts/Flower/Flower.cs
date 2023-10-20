@@ -16,7 +16,7 @@ public interface IFlower
     FlowerType Type { get; }
     int Health { get; set; }
     float Radius { get; set; }
-    void TakeDamage(int amount);
+    void TakeDamage(int amount, GameObject flower);
 
 }
 
@@ -36,22 +36,21 @@ public class Flower : IFlower
 
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, GameObject flower)
     {
         this.Health -= amount;
 
         if (this.Health <= 0)
         {
-            DestroyFlower();
+            DestroyFlower(flower);
         }
     }
 
 
-    private void DestroyFlower()
+    private void DestroyFlower(GameObject flower)
     {
 
     }
-
 }
 
 public class FlowerMain : Flower
@@ -62,7 +61,7 @@ public class FlowerMain : Flower
 
     }
 
-    public void ShootOutBud(string budType, Vector3 position)
+    public void ShootOutBud(string budType, Vector3 position, GameObject bud)
     {
 
     }
