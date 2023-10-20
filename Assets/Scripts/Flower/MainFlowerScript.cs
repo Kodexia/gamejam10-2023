@@ -7,7 +7,10 @@ public class MainFlowerScript : MonoBehaviour
     [SerializeField] float radius = 20f;
     [SerializeField] FlowerType type;
     [SerializeField] GameObject flowerObject;
-    [SerializeField] GameObject flowerBudPrefab;
+
+    [SerializeField] GameObject flowerBudPrefabOffensive;
+    [SerializeField] GameObject flowerBudPrefabDefensive;
+    [SerializeField] GameObject flowerBudPrefabEconomic;
 
     public FlowerMain flower;
 
@@ -30,15 +33,17 @@ public class MainFlowerScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            NewBud(flowerBudPrefabEconomic); 
+
             Debug.Log("Player has collided with the flower!");
         }
     }
 
     //on water fill
 
-    void NewBud()
+    void NewBud(GameObject flowerBudPrefab)
     {
-        flower.ShootOutBud(FlowerType.Economic, new Vector2(1, 1), flowerBudPrefab);
+        flower.ShootOutBud(new Vector2(1, 1), flowerBudPrefab);
     }
     
     private void OnDrawGizmosSelected()
