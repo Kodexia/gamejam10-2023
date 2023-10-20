@@ -64,7 +64,7 @@ public class FlowerMain : Flower
 
     }
 
-    public void ShootOutBud(string budType, Vector3 position, GameObject bud)
+    public void ShootOutBud(FlowerType budType, Vector3 position, GameObject bud)
     {
 
     }
