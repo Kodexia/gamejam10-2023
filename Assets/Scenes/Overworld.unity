@@ -584,6 +584,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 8
   type: 0
+  flowerObject: {fileID: 0}
+  flowerBudPrefab: {fileID: 0}
 --- !u!1 &1297874620
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +659,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <movementSpeed>k__BackingField: 10
   <maxHealth>k__BackingField: 10
+  <zoneDamageHealDelay>k__BackingField: 1
+  <outsideZoneDamage>k__BackingField: 1
+  <insideZoneHeal>k__BackingField: 0.25
   <groundMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
