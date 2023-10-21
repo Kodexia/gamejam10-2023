@@ -51,6 +51,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 09220d4bb447e454f8da584e54bb6c20, type: 3}
   - {fileID: 21300000, guid: b3be71775e62a974aae8ba668c000bd5, type: 3}
   - {fileID: 21300000, guid: f19ef9a9b2fa4f947965c1eca28005ef, type: 3}
-  <playerDistanceToAdd>k__BackingField: 2.5
-  <waterRegenSpeed>k__BackingField: 0.0005
+  <playerDistanceToAdd>k__BackingField: 3
+  <waterRegenSpeed>k__BackingField: 0.004
   isBoosted: 0
