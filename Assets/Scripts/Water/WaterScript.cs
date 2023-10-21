@@ -3,11 +3,13 @@ using System.Collections;
 using UnityEngine;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using System;
+using System.Linq;
+using UnityEngine.Serialization;
 
 public class WaterScript : MonoBehaviour
 {
     [SerializeField]
-    private GameObject waterObject;
+    private GameObject pondObject;
 
     [SerializeField]
     private float maximumWaterCapacity = 200;
@@ -21,6 +23,8 @@ public class WaterScript : MonoBehaviour
     private int[] _stages;
     private int currentStage = 0;
     private CharacterStatsScript playerStats;
+    
+    private SpriteRenderer waterSpriteRenderer;
 
     public bool isBoosted = false;
     
@@ -34,7 +38,20 @@ public class WaterScript : MonoBehaviour
         {
             _stages[i - 1] = (int)maximumWaterCapacity / i;
         }
+        
         playerStats = GameManager.instance.playerBehaviour.GetComponent<CharacterStatsScript>();
+        
+        if (waterSpriteRenderer == null)
+        {
+            waterSpriteRenderer = pondObject.GetComponent<SpriteRenderer>();
+
+            if (waterSpriteRenderer == null)
+            {
+                waterSpriteRenderer = pondObject.AddComponent<SpriteRenderer>();
+            }
+        }
+
+        ChangeSprite(currentStage);
     }
 
     public void EcoFlowerBoost(float boost)
@@ -90,16 +107,15 @@ public class WaterScript : MonoBehaviour
     {
         if (_currentWaterCapacity == maximumWaterCapacity)
         {
-            return _stages.Length - 1;
+            return 0;
         }
 
         int newSpriteIndex = 0;
-        for (int i = 0; i < _stages.Length; i++)
+        for (int i = 0; i < _stages.Count(); i++)
         {
             if (_currentWaterCapacity <= _stages[i])
             {
                 newSpriteIndex = i;
-                break;
             }
         }
 
@@ -118,6 +134,13 @@ public class WaterScript : MonoBehaviour
     // Called when the sprite needs to be changed
     void ChangeSprite(int stage)
     {
-        // code for changing the sprite
+        if (stage < 0 || stage >= waterSprites.Count)
+        {
+            Debug.LogWarning("Invalid stage provided to ChangeSprite.");
+            return;
+        }
+
+        waterSpriteRenderer.sprite = waterSprites[stage];
+        currentStage = stage;
     }
 }

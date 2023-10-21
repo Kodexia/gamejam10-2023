@@ -49,15 +49,21 @@ public class CharacterStatsScript : MonoBehaviour
     public void AddWater(float water)
     {
         // If can add water -> adds water and clamps it just in case
+        Debug.Log("Adding water");
+        Debug.Log("Current water level: " + currentWaterLevel + ", Water to add: " + water);
         if (CanAddWater(water))
             currentWaterLevel = Mathf.Clamp(currentWaterLevel + water, 0, maxWaterLevel);
+        Debug.Log("Current water level after adding: " + currentWaterLevel);
     }
 
     public void DrainWater(float water)
     {
         // Removes water and makes sure it's not removing below 0
+        Debug.Log("Draining water");
+        Debug.Log("Current water level: " + currentWaterLevel + ", Water to drain: " + water);
         if (currentWaterLevel >= water)
             currentWaterLevel -= water;
+        Debug.Log("Current water level after draining: " + currentWaterLevel);
     }
 
     public bool CanAddWater(float water)
