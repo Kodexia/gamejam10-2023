@@ -941,6 +941,11 @@ MonoBehaviour:
   <playerTag>k__BackingField: Player
   <enemyTag>k__BackingField: Enemy
   <flowerTag>k__BackingField: Flower
+  <flowerBudPrefabOffensive>k__BackingField: {fileID: 0}
+  <flowerBudPrefabDefensive>k__BackingField: {fileID: 0}
+  <flowerBudPrefabEconomic>k__BackingField: {fileID: 0}
+  <menuCanvas>k__BackingField: {fileID: 0}
+  <chooseFlowerCanvas>k__BackingField: {fileID: 0}
 --- !u!1 &1662760688
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,6 +2290,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bc1da170ee767a64cb7d87084053cdd5, type: 3}
   - {fileID: 21300000, guid: cd714b261a5855d438a4907b26afe021, type: 3}
   - {fileID: 21300000, guid: e31df03a3caa35f489fa57eb875cad43, type: 3}
+  - {fileID: 21300000, guid: a1efe0d0d3cb3ba4bb4bc8cad7c3fc15, type: 3}
 --- !u!1 &3209820461701008681
 GameObject:
   m_ObjectHideFlags: 0
@@ -2320,6 +2326,7 @@ MonoBehaviour:
   waterRadius: 3
   maxWaterLevel: 100
   type: 0
+  chooseFlowerCanvas: {fileID: 0}
   flowerBudPrefabOffensive: {fileID: 3679717070793638722, guid: 77117f563a3680d4a9511ac1b2b8a249, type: 3}
   flowerBudPrefabDefensive: {fileID: 3845495867336707814, guid: 06a91ef1a55d35a458bbeebfe29041d9, type: 3}
   flowerBudPrefabEconomic: {fileID: 7445205018577276849, guid: 00c280829711db64ba06c200f2fb555e, type: 3}
