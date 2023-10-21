@@ -40,6 +40,9 @@ public class Flower : IFlower
     public float Priority { get; set; }
     public GameObject flowerObject { get; private set; }
 
+    public GrassGrowth grassScript;
+
+
 
     public Flower(GameObject flower, FlowerType type, float radius, float maxHealth = 100)
     {
