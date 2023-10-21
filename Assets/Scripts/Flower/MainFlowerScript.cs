@@ -34,7 +34,7 @@ public class MainFlowerScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            NewBud(flowerBudPrefabEconomic);
+            SpawnerManager.instance.SpawnNewFlowerBud(flowerBudPrefabEconomic);
 
             Debug.Log("Player has collided with the flower!");
         }

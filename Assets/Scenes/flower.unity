@@ -244,26 +244,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &398694763 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3207069874199795642, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
-  m_PrefabInstance: {fileID: 3889650833081709534}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &398694765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 398694763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2380f5fc4d941a947a51d61e19839f4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 20
-  type: 0
-  flowerObject: {fileID: 398694763}
 --- !u!1 &565726244
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +326,7 @@ Transform:
   m_GameObject: {fileID: 565726244}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.09, y: 3.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -604,6 +584,53 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &1116341155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1116341157}
+  - component: {fileID: 1116341158}
+  m_Layer: 0
+  m_Name: __SpawnerManager__
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1116341157
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116341155}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.541894, y: 2.4480586, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1116341158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116341155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0aaa0cda3d00ed4a819d1a0b1566010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainFlowerPrefab: {fileID: 1315533034}
+  flowerBudPrefab: {fileID: 3207069874199795642, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
+  budDiameter: 0
 --- !u!1 &1154520248
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,8 +657,8 @@ Transform:
   m_GameObject: {fileID: 1154520248}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: -0.18, z: 0.10435808}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1315533036}
@@ -678,7 +705,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -715,8 +742,8 @@ Transform:
   m_GameObject: {fileID: 1315533034}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.391894, y: 2.6280587, z: -0.10435808}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1154520249}
@@ -774,7 +801,7 @@ MonoBehaviour:
   flowerObject: {fileID: 1315533034}
   flowerBudPrefabOffensive: {fileID: 0}
   flowerBudPrefabDefensive: {fileID: 0}
-  flowerBudPrefabEconomic: {fileID: 398694763}
+  flowerBudPrefabEconomic: {fileID: 3207069874199795642, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
 --- !u!1 &1542890125
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +867,7 @@ Transform:
   m_GameObject: {fileID: 1542890125}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 1.09, y: 3.44, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -935,7 +962,7 @@ Transform:
   m_GameObject: {fileID: 2125238407}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 1.09, y: 3.44, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1107,73 +1134,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &3889650833081709534
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3207069874199795642, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
-      propertyPath: m_Name
-      value: FlowerBud
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932565799720206671, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932565799720206671, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932565799720206671, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932565799720206671, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932565799720206671, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932565799720206671, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932565799720206671, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932565799720206671, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932565799720206671, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932565799720206671, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3207069874199795642, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 398694765}
-  m_SourcePrefab: {fileID: 100100000, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2125238410}
   - {fileID: 1542890127}
+  - {fileID: 1315533036}
   - {fileID: 565726246}
   - {fileID: 374842535}
-  - {fileID: 1315533036}
-  - {fileID: 3889650833081709534}
+  - {fileID: 1116341157}
