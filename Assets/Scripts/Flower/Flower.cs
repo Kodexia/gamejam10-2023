@@ -41,12 +41,13 @@ public class Flower : IFlower
     public GameObject flowerObject { get; private set; }
 
 
-    public Flower(GameObject flower, FlowerType type, float radius, float maxHealth = 100)
+    public Flower(GameObject flower, FlowerType type, float radius, float maxHealth = 100, float priority = 3)
     {
         this.Type = type;
         this.Health = 100f;
         this.Radius = radius;
         this.flowerObject = flower;
+        this.Priority = priority;
         MaxHealth = maxHealth;
     }
 
@@ -95,7 +96,7 @@ public class Flower : IFlower
 public class FlowerMain : Flower
 {
 
-    public FlowerMain(GameObject flower, float radius) : base(flower, FlowerType.Main, radius)
+    public FlowerMain(GameObject flower, float radius, int priority = 3) : base(flower, FlowerType.Main, radius, priority)
     {
 
     }
