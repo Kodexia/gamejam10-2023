@@ -361,6 +361,9 @@ MonoBehaviour:
   <zoneDamageHealDelay>k__BackingField: 1
   <outsideZoneDamage>k__BackingField: 1
   <insideZoneHeal>k__BackingField: 0.25
+  <maxWaterLevel>k__BackingField: 100
+  <waterSuckSpeed>k__BackingField: 0.05
+  <waterDrainSpeed>k__BackingField: 1
   <groundMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
@@ -797,8 +800,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 20
+  maxWaterLevel: 100
   type: 0
-  flowerObject: {fileID: 1315533034}
   flowerBudPrefabOffensive: {fileID: 0}
   flowerBudPrefabDefensive: {fileID: 0}
   flowerBudPrefabEconomic: {fileID: 3207069874199795642, guid: aec23ed0213728c4c93c88ce56434365, type: 3}
@@ -1138,9 +1141,9 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1116341157}
   - {fileID: 2125238410}
   - {fileID: 1542890127}
   - {fileID: 1315533036}
   - {fileID: 565726246}
   - {fileID: 374842535}
-  - {fileID: 1116341157}

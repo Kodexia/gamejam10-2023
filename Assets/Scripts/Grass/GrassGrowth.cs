@@ -8,7 +8,7 @@ public class GrassGrowth : MonoBehaviour
     [SerializeField]
     Transform grassScale;
     [SerializeField]
-    MainFlowerScript flowerScript;
+    FlowerScript flowerScript;
     Flower flower;
 
     [SerializeField]

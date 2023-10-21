@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Flower
+  - Pond
   layers:
   - Default
   - TransparentFX
