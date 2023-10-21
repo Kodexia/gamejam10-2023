@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 351031098454047683}
-  - component: {fileID: 4874969719783505176}
   m_Layer: 0
   m_Name: Grass
   m_TagString: Untagged
@@ -36,21 +35,6 @@ Transform:
   - {fileID: 9203722622513088583}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4874969719783505176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 358329254719617333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0641faa75064dfa45addf522b489df7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grassScale: {fileID: 5379239427743784531}
-  flowerScript: {fileID: 0}
-  initialBonusScaling: 5
 --- !u!1 &4288556378225402166
 GameObject:
   m_ObjectHideFlags: 0

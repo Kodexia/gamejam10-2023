@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
+[RequireComponent(typeof(HealthBarScript))]
 public class MainFlowerScript : MonoBehaviour
 {
     [SerializeField] float radius = 5f;
@@ -14,17 +15,23 @@ public class MainFlowerScript : MonoBehaviour
     [SerializeField] public GameObject flowerBudPrefabDefensive;
     [SerializeField] public GameObject flowerBudPrefabEconomic;
 
+    GrassGrowth grassGrowth;
     public FlowerMain flower;
     private float currentWaterLevel = 0f;
+    HealthBarScript barScript;
+
 
     void Start()
     {
         flower = new FlowerMain(gameObject, radius, priority: 1);
+        grassGrowth = GetComponentInChildren<GrassGrowth>();
+        barScript = GetComponent<HealthBarScript>();
     }
 
     void Update()
     {
         testDmg();
+        barScript.UpdateHealthbar(flower.Health, flower.MaxHealth);
     }
 
     void testDmg()

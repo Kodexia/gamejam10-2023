@@ -47,7 +47,7 @@ public class Flower : IFlower
     public Flower(GameObject flower, FlowerType type, float radius, float maxHealth = 100, float priority = 3)
     {
         this.Type = type;
-        this.Health = 100f;
+        this.Health = maxHealth;
         this.Radius = radius;
         this.flowerObject = flower;
         this.Priority = priority;
