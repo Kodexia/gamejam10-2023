@@ -43,7 +43,7 @@ public class Flower : IFlower
     public Flower(GameObject flower, FlowerType type, float radius, float maxHealth = 100)
     {
         this.Type = type;
-        this.Health = 100;
+        this.Health = 100f;
         this.Radius = radius;
         this.flowerObject = flower;
         MaxHealth = maxHealth;
@@ -57,6 +57,7 @@ public class Flower : IFlower
         {
             DestroyFlower();
         }
+        
     }
 
     public void increaseWaterLevel(float amount)
@@ -86,7 +87,7 @@ public class Flower : IFlower
 
     private void DestroyFlower()
     {
-
+        
     }
 }
 

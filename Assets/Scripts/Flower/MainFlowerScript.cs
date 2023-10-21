@@ -13,6 +13,7 @@ public class MainFlowerScript : MonoBehaviour
     [SerializeField] GameObject flowerBudPrefabOffensive;
     [SerializeField] GameObject flowerBudPrefabDefensive;
     [SerializeField] GameObject flowerBudPrefabEconomic;
+    GrassGrowth grassGrowth;
 
     public FlowerMain flower;
     private float currentWaterLevel = 0f;
@@ -25,15 +26,24 @@ public class MainFlowerScript : MonoBehaviour
 
     void Start()
     {
-
-
+        grassGrowth = GetComponentInChildren<GrassGrowth>();
+        Debug.Log(flower.Health);
     }
 
     void Update()
     {
-
+        testDmg();
     }
 
+    void testDmg()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            flower.TakeDamage(10);
+            grassGrowth.ChangeScale();
+            Debug.Log(flower.Health);
+        }
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
