@@ -14,11 +14,15 @@ public enum FlowerType
 public interface IFlower
 {
     FlowerType Type { get; }
-    int Health { get; set; }
-    int MaxHealth { get; set; }
+    float Health { get; set; }
+    float MaxHealth { get; set; }
+    float WaterLevel { get; set; }
+    float MaxWaterLevel { get; set; }
     float Radius { get; set; }
-    void TakeDamage(int amount);
-    GameObject flowerObject {  get; }
+    void TakeDamage(float amount);
+    void increaseWaterLevel(float amount);
+    void decreaseWaterLevel(float amount);
+    GameObject flowerObject { get; }
 
 }
 
@@ -26,14 +30,17 @@ public interface IFlower
 public class Flower : IFlower
 {
     public FlowerType Type { get; private set; }
-    public int Health { get; set; }
-    public int MaxHealth { get; set; }
+    public float Health { get; set; }
+    public float MaxHealth { get; set; }
+    public float WaterLevel { get; set; }
+    public float MaxWaterLevel { get; set; }
+    public float MinHealth { get; set; }
     public float Radius { get; set; }
 
     public GameObject flowerObject { get; private set; }
 
 
-    public Flower(GameObject flower, FlowerType type, float radius, int maxHealth = 100)
+    public Flower(GameObject flower, FlowerType type, float radius, float maxHealth = 100)
     {
         this.Type = type;
         this.Health = 100;
@@ -42,13 +49,37 @@ public class Flower : IFlower
         MaxHealth = maxHealth;
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         this.Health -= amount;
 
         if (this.Health <= 0)
         {
             DestroyFlower();
+        }
+    }
+
+    public void increaseWaterLevel(float amount)
+    {
+        if (this.WaterLevel + amount > MaxWaterLevel)
+        {
+            this.WaterLevel = MaxWaterLevel;
+        }
+        else
+        {
+            this.WaterLevel += amount;
+        }
+    }
+
+    public void decreaseWaterLevel(float amount)
+    {
+        if (this.WaterLevel - amount < 0)
+        {
+            this.WaterLevel = 0;
+        }
+        else
+        {
+            this.WaterLevel -= amount;
         }
     }
 
