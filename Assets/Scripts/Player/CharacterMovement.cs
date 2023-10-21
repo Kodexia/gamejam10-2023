@@ -43,5 +43,5 @@ public class CharacterMovement : MonoBehaviour
     {
         bool isOnPosition = (transform.position == movePosition);
         return !isOnPosition;
-    }    
+    }
 }

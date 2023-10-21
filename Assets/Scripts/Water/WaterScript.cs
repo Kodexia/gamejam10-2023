@@ -11,7 +11,7 @@ public class WaterScript : MonoBehaviour
 
     [SerializeField]
     private float maximumWaterCapacity = 200;
-    
+
     [SerializeField]
     private List<Sprite> waterSprites;
     [field: SerializeField] private float playerDistanceToAdd { get; set; } = 1f;
@@ -26,7 +26,7 @@ public class WaterScript : MonoBehaviour
     void Start()
     {
         _currentWaterCapacity = maximumWaterCapacity;
-        
+
         _stages = new int[waterSprites.Count];
         for (int i = 1; i <= waterSprites.Count; i++)
         {
@@ -45,7 +45,7 @@ public class WaterScript : MonoBehaviour
         else
             AddWater(waterRegenSpeed);
     }
-    
+
     // Called when the water is being charged
     void ChargeWater(float amount)
     {
@@ -63,7 +63,7 @@ public class WaterScript : MonoBehaviour
         
         ChangeSpriteIfNeeded();
     }
-    
+
     // Called when the water is being added
     void AddWater(float amount)
     {
@@ -78,9 +78,9 @@ public class WaterScript : MonoBehaviour
         {
             return _stages.Length - 1;
         }
-        
+
         int newSpriteIndex = 0;
-        for(int i = 0; i < _stages.Length; i++)
+        for (int i = 0; i < _stages.Length; i++)
         {
             if (_currentWaterCapacity <= _stages[i])
             {

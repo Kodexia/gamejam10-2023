@@ -17,13 +17,15 @@ public class MainFlowerScript : MonoBehaviour
     public FlowerMain flower;
     private float currentWaterLevel = 0f;
 
-    public MainFlowerScript() {
+    public MainFlowerScript()
+    {
         flower = new FlowerMain(flowerObject, radius);
     }
 
 
     void Start()
     {
+
 
     }
 
@@ -36,7 +38,7 @@ public class MainFlowerScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            NewBud(flowerBudPrefabEconomic); 
+            NewBud(flowerBudPrefabEconomic);
 
             Debug.Log("Player has collided with the flower!");
         }
