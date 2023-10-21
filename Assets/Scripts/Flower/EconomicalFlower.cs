@@ -47,7 +47,7 @@ public class EconomicalFlower : FlowerScript
 
         if (closestDistance == null)
         {
-            Debug.LogException(new Exception("No pond found!"));
+            Debug.LogException(new Exception("No eligible pond found!"));
             return;
         }
 
