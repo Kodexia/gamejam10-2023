@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 7565037002013374743}
   m_Layer: 0
   m_Name: MainFlower
-  m_TagString: Untagged
+  m_TagString: Flower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,8 +252,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 20
+  waterRadius: 3
   maxWaterLevel: 100
   type: 0
+  chooseFlowerCanvas: {fileID: 0}
   flowerBudPrefabOffensive: {fileID: 3679717070793638722, guid: 77117f563a3680d4a9511ac1b2b8a249, type: 3}
   flowerBudPrefabDefensive: {fileID: 3845495867336707814, guid: 06a91ef1a55d35a458bbeebfe29041d9, type: 3}
   flowerBudPrefabEconomic: {fileID: 7445205018577276849, guid: 00c280829711db64ba06c200f2fb555e, type: 3}

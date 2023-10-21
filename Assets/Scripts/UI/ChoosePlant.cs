@@ -13,24 +13,21 @@ public class ChoosePlant : MonoBehaviour
         Debug.Log("Spawned attack");
         script.NewBud(GameManager.instance.flowerBudPrefabOffensive);
         Time.timeScale = 1.0f;
-        gameObject.GetComponent<CanvasGroup>().alpha = 0;
-        gameObject.GetComponent<CanvasGroup>().interactable = false;
+        gameObject.SetActive(false);
     }
     public void SpawnDefensiveFlower()
     {
         Debug.Log("Spawned defensive");
         script.NewBud(GameManager.instance.flowerBudPrefabDefensive);
         Time.timeScale = 1.0f;
-        gameObject.GetComponent<CanvasGroup>().alpha = 0;
-        gameObject.GetComponent<CanvasGroup>().interactable = false;
+        gameObject.SetActive(false);
     }
     public void SpawnEconomicFlower()
     {
         Debug.Log("Spawned economic");
         script.NewBud(GameManager.instance.flowerBudPrefabEconomic);
         Time.timeScale = 1.0f;
-        gameObject.GetComponent<CanvasGroup>().alpha = 0;
-        gameObject.GetComponent<CanvasGroup>().interactable = false;
+        gameObject.SetActive(false);
     }
 
 }

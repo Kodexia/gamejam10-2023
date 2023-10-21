@@ -211,6 +211,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: InGameMenuCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2931973848854076991, guid: 25623036989520445bd7a43f65c2de96, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991665365373319632, guid: 25623036989520445bd7a43f65c2de96, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6887078717823804560, guid: 25623036989520445bd7a43f65c2de96, type: 3}
       propertyPath: m_Pivot.x
       value: 0
