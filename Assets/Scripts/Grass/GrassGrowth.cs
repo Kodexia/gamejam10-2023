@@ -11,7 +11,7 @@ public class GrassGrowth : MonoBehaviour
     Transform originGrassScale;
     [SerializeField]
     MainFlowerScript flowerScript;
-    FlowerMain flower;
+    Flower flower;
     
     
     // Start is called before the first frame update
