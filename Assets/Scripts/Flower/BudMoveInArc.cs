@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlowerMoveInArc : MonoBehaviour
+public class BudMoveInArc : MonoBehaviour
 {
     public float duration = 1.0f; // Duration of the movement
     public float heightOffset = 5.0f; // How high the arc should be

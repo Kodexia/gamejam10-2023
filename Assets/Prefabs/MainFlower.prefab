@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 712707813519184702}
   - component: {fileID: 8790451832475322142}
   - component: {fileID: 2473318018196559045}
+  - component: {fileID: 7565037002013374743}
   m_Layer: 0
   m_Name: MainFlower
   m_TagString: Untagged
@@ -300,6 +301,20 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   <canvas>k__BackingField: {fileID: 7835060710416040109}
   <fillSprite>k__BackingField: {fileID: 3278656326281914243}
+--- !u!114 &7565037002013374743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793723652054375757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4eb9aba96014273bda79edb4d8af2a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 1
+  heightOffset: 5
 --- !u!1 &4034044866709619877
 GameObject:
   m_ObjectHideFlags: 0
