@@ -17,4 +17,8 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public string playerTag { get; private set; } = "Player";
     [field: SerializeField] public string enemyTag { get; private set; } = "Enemy";
     [field: SerializeField] public string flowerTag { get; private set; } = "Flower";
+
+    [SerializeField] public GameObject flowerBudPrefabOffensive;
+    [SerializeField] public GameObject flowerBudPrefabDefensive;
+    [SerializeField] public GameObject flowerBudPrefabEconomic;
 }

@@ -11,7 +11,7 @@ public class ChoosePlant : MonoBehaviour
     public void SpawnAttackFlower()
     {
         Debug.Log("Spawned attack");
-        script.NewBud(script.flowerBudPrefabOffensive);
+        script.NewBud(GameManager.instance.flowerBudPrefabOffensive);
         Time.timeScale = 1.0f;
         gameObject.GetComponent<CanvasGroup>().alpha = 0;
         gameObject.GetComponent<CanvasGroup>().interactable = false;
@@ -19,7 +19,7 @@ public class ChoosePlant : MonoBehaviour
     public void SpawnDefensiveFlower()
     {
         Debug.Log("Spawned defensive");
-        script.NewBud(script.flowerBudPrefabDefensive);
+        script.NewBud(GameManager.instance.flowerBudPrefabDefensive);
         Time.timeScale = 1.0f;
         gameObject.GetComponent<CanvasGroup>().alpha = 0;
         gameObject.GetComponent<CanvasGroup>().interactable = false;
@@ -27,7 +27,7 @@ public class ChoosePlant : MonoBehaviour
     public void SpawnEconomicFlower()
     {
         Debug.Log("Spawned economic");
-        script.NewBud(script.flowerBudPrefabEconomic);
+        script.NewBud(GameManager.instance.flowerBudPrefabEconomic);
         Time.timeScale = 1.0f;
         gameObject.GetComponent<CanvasGroup>().alpha = 0;
         gameObject.GetComponent<CanvasGroup>().interactable = false;
