@@ -41,7 +41,7 @@ public class MainFlowerScript : MonoBehaviour
         {
             flower.TakeDamage(10);
             grassGrowth.ChangeScale();
-            Debug.Log(flower.Health);
+            Debug.Log("Current health of flower: " + flower.Health);
         }
     }
     void OnTriggerEnter2D(Collider2D other)
