@@ -41,10 +41,14 @@ public class CharacterBehaviourScript : MonoBehaviour
 
     private void HydrateFlowerIfCan()
     {
-        if (mainFlower.IsPlayerInRange(transform.position))
+        if (mainFlower.IsPlayerInRangeToWater(transform.position))
         {
-            mainFlower.AddWater(stats.waterDrainSpeed);
-            stats.DrainWater(stats.waterDrainSpeed);
+            if (stats.currentWaterLevel > stats.waterDrainSpeed)
+            {
+                mainFlower.AddWater(stats.waterDrainSpeed);
+                stats.DrainWater(stats.waterDrainSpeed);
+                // ToDo: Add animation or particles for hydrating the flower
+            }
         }
     }
 

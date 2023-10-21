@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0641faa75064dfa45addf522b489df7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grassScale: {fileID: 0}
+  grassScale: {fileID: 2427453760358567948}
   flowerScript: {fileID: 6565620787512798497}
   initialBonusScaling: 5
 --- !u!4 &2427453760358567948 stripped

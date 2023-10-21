@@ -5,6 +5,7 @@ public class BudSpawnerManager : MonoBehaviour
 {
     [SerializeField] GameObject mainFlowerPrefab;
     [SerializeField] GameObject flowerBudPrefab;
+    [SerializeField] private GameObject seedPrefab;
 
     public static BudSpawnerManager instance;
 
@@ -68,10 +69,15 @@ public class BudSpawnerManager : MonoBehaviour
 
     public void SpawnNewFlowerBud(GameObject flowerBudPrefab)
     {
-        Vector2 spawnPosition = GetNewPosition();
+        Vector2 endPosition = GetNewPosition();
 
-        GameObject newBudObject = Instantiate(flowerBudPrefab, spawnPosition, Quaternion.identity);
-        spawnedBuds.Add(spawnPosition);
+        MainFlowerScript script = GameManager.instance.mainFlower;
+        Vector2 startPosition = script.flower.flowerObject.transform.position;
+        
+        BudMoveInArc budMoveInArc = script.flower.flowerObject.GetComponent<BudMoveInArc>();
+        budMoveInArc.ShootOutBud(startPosition, endPosition, seedPrefab, flowerBudPrefab);
+        
+        spawnedBuds.Add(endPosition);
     }
 
     public Vector2 GetNewPosition() // returns verctor2 available position

@@ -103,12 +103,6 @@ public class FlowerMain : Flower
     {
 
     }
-
-    public void ShootOutBud(Vector3 position, GameObject budPrefab)
-    {
-        GameObject newBud = GameObject.Instantiate(budPrefab, position, Quaternion.identity);
-
-    }
 }
 
 

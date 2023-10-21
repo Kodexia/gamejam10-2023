@@ -6,7 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(HealthBarScript))]
 public class MainFlowerScript : MonoBehaviour
 {
-    [SerializeField] float radius = 5f;
+    [SerializeField] private float radius = 20f;
+    [SerializeField] private float waterRadius = 3f;
     [field: SerializeField] private float maxWaterLevel = 100f;
     [SerializeField] FlowerType type;
     GameObject flowerObject;
@@ -46,7 +47,7 @@ public class MainFlowerScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag(GameManager.instance.playerTag))
         {
-            SpawnerManager.instance.SpawnNewFlowerBud(flowerBudPrefabDefensive);
+            BudSpawnerManager.instance.SpawnNewFlowerBud(flowerBudPrefabDefensive);
 
             Debug.Log("Player has collided with the flower!");
         }
@@ -65,15 +66,20 @@ public class MainFlowerScript : MonoBehaviour
     public void NewBud(GameObject flowerBudPrefab)
     {
         currentWaterLevel = 0;
-
-        flower.ShootOutBud(new Vector2(1, 1), flowerBudPrefab);
-        Debug.Log("Shot new bud!");
+        
+        BudSpawnerManager.instance.SpawnNewFlowerBud(flowerBudPrefab);
     }
     
     public bool IsPlayerInRange(Vector3 playerPosition)
     {
         return (Vector3.Distance(transform.position, playerPosition) <= radius);
     }
+
+    public bool IsPlayerInRangeToWater(Vector3 playerPosition)
+    {
+        return (Vector3.Distance(transform.position, playerPosition) <= waterRadius);
+    }
+    
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
