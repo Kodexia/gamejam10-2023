@@ -27,8 +27,11 @@ public class GrassGrowth : MonoBehaviour
     // Changes scaling of object based on left hp of parent object in %
     public void ChangeScale()
     {
-        float procent = flower.Health / flower.MaxHealth;
-        grassScale.localScale = new Vector3(procent, procent, procent);
+        if(flower.Health >= 0)
+        {
+            float procent = flower.Health / flower.MaxHealth;
+            grassScale.localScale = new Vector3(procent, procent, procent);
+        }
         Debug.Log(grassScale.localScale.x);
 
     }
