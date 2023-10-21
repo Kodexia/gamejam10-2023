@@ -1,19 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerManager : MonoBehaviour
+public class BudSpawnerManager : MonoBehaviour
 {
     [SerializeField] GameObject mainFlowerPrefab;
     [SerializeField] GameObject flowerBudPrefab;
 
-    public static SpawnerManager instance;
+    public static BudSpawnerManager instance;
 
     private float minRadius;
     private float maxRadius;
     [SerializeField] float budDiameter = 4.5f;
     [SerializeField] float mainFlowerDiameter = 3f;
+    [SerializeField] int maxNubOfLoops = 10;
     private List<Vector2> spawnedBuds;
     private float currentAngle = 0f;
+    public int numOfLoops { get; private set; }
 
 
     private float middleRadius;
@@ -84,12 +86,23 @@ public class SpawnerManager : MonoBehaviour
         {
             if (safetyNet > 100)
             {
-                Debug.LogError("Too many attempts to spawn, space might be full!");
+                //Debug.LogError("Too many attempts to spawn, space might be full!");
 
                 minRadius += 1;
                 maxRadius += 1;
                 middleRadius = (minRadius + maxRadius) / 2f;
                 safetyNet = 0;
+
+                numOfLoops++;
+                
+                if(numOfLoops >= maxNubOfLoops)
+                {
+                    Debug.Log("END GAME");
+
+                    // GameManager.instance.EndGame(true);
+                }
+
+
             }
 
             currentAngle += goldenAngle;
