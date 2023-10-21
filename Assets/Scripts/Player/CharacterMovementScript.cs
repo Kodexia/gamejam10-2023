@@ -6,14 +6,14 @@ using System.Runtime.CompilerServices;
 using UnityEditor.SceneTemplate;
 using UnityEngine;
 
-public class CharacterMovement : MonoBehaviour
+public class CharacterMovementScript : MonoBehaviour
 {
-    CharacterStats stats;
+    CharacterStatsScript stats;
     Vector3 movePosition;
     public Action<string> onEnemyTarget;
     void Start()
     {
-        stats = GetComponent<CharacterStats>();
+        stats = GetComponent<CharacterStatsScript>();
         movePosition = transform.position;
     }
 
