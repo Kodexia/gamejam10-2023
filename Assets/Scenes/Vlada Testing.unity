@@ -334,8 +334,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f66e4a7248ad74ab9c690e7a995d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <mainFlower>k__BackingField: {fileID: 0}
-  <playerBehaviour>k__BackingField: {fileID: 0}
+  <mainFlower>k__BackingField: {fileID: 847534608}
+  <playerBehaviour>k__BackingField: {fileID: 565726251}
+  <playerTag>k__BackingField: Player
+  <enemyTag>k__BackingField: Enemy
+  <flowerTag>k__BackingField: Flower
 --- !u!4 &541917786
 Transform:
   m_ObjectHideFlags: 0
@@ -365,6 +368,7 @@ GameObject:
   - component: {fileID: 565726247}
   - component: {fileID: 565726249}
   - component: {fileID: 565726250}
+  - component: {fileID: 565726251}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -537,6 +541,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &565726251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565726244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e664b49b7f0b88048a147b9417911635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &756701977
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,6 +715,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 793723652054375757, guid: 4e389b959b633b944a1235f29d8638b4, type: 3}
   m_PrefabInstance: {fileID: 212336705}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &847534608 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8790451832475322142, guid: 4e389b959b633b944a1235f29d8638b4, type: 3}
+  m_PrefabInstance: {fileID: 212336705}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847534605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d79b10f82a1684d8afa2ed2c78f0fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1116341155
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,8 +772,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainFlowerPrefab: {fileID: 847534605}
   flowerBudPrefab: {fileID: 7445205018577276849, guid: 00c280829711db64ba06c200f2fb555e, type: 3}
+  seedPrefab: {fileID: 2435610430575004578, guid: bfd4d730d4c429446a522ed4fefc0dc5, type: 3}
   budDiameter: 4
   mainFlowerDiameter: 3.5
+  maxNubOfLoops: 10
 --- !u!1 &1542890125
 GameObject:
   m_ObjectHideFlags: 0
