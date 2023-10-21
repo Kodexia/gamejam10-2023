@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 20
-  flowerObject: {fileID: 7445205018577276849}
   type: 3
+  flowerObject: {fileID: 7445205018577276849}
   maxHealth: 80
   boostSpeed: 2
 --- !u!1 &8521025689538295369

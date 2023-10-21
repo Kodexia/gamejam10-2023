@@ -13,22 +13,13 @@ public class MainFlowerScript : MonoBehaviour
     [SerializeField] public GameObject flowerBudPrefabOffensive;
     [SerializeField] public GameObject flowerBudPrefabDefensive;
     [SerializeField] public GameObject flowerBudPrefabEconomic;
-    GrassGrowth grassGrowth;
 
     public FlowerMain flower;
     private float currentWaterLevel = 0f;
 
-    public MainFlowerScript()
-    {
-        flower = new FlowerMain(flowerObject, radius);
-    }
-
-
     void Start()
     {
-        flowerObject = gameObject;
-        grassGrowth = GetComponentInChildren<GrassGrowth>();
-        Debug.Log(flower.Health);
+        flower = new FlowerMain(gameObject, radius, priority: 1);
     }
 
     void Update()
@@ -41,13 +32,12 @@ public class MainFlowerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             flower.TakeDamage(10);
-            grassGrowth.ChangeScale();
             Debug.Log("Current health of flower: " + flower.Health);
         }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag(GameManager.instance.playerTag))
         {
             SpawnerManager.instance.SpawnNewFlowerBud(flowerBudPrefabEconomic);
 
@@ -75,7 +65,7 @@ public class MainFlowerScript : MonoBehaviour
     
     public bool IsPlayerInRange(Vector3 playerPosition)
     {
-        return (Vector3.Distance(transform.position, playerPosition) <= flower.Radius);
+        return (Vector3.Distance(transform.position, playerPosition) <= radius);
     }
     private void OnDrawGizmosSelected()
     {
