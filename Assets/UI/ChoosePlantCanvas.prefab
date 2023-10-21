@@ -394,7 +394,6 @@ GameObject:
   - component: {fileID: 5782647093897099318}
   - component: {fileID: 1960840048471110373}
   - component: {fileID: 6330808220775882091}
-  - component: {fileID: 4181648755850938356}
   m_Layer: 5
   m_Name: ChoosePlantCanvas
   m_TagString: Untagged
@@ -503,18 +502,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   script: {fileID: 0}
---- !u!225 &4181648755850938356
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2446705731527112881}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &2841237467926087502
 GameObject:
   m_ObjectHideFlags: 0

@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf33d2deee56e141b048526ecf3bec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 660133630689082428, guid: 5fcc5f4413128a446893376de46e3a40, type: 3}
+  enemyPrefab: {fileID: 7386011338908269337, guid: cb3446ee688ff344ebbb7a5c111b7b4d, type: 3}
   initialDelay: 5
   spawnRate: 2
   mapSize: {x: 50, y: 25}
