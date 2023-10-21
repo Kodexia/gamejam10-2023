@@ -251,9 +251,9 @@ MonoBehaviour:
   radius: 20
   maxWaterLevel: 100
   type: 0
-  flowerBudPrefabOffensive: {fileID: 0}
-  flowerBudPrefabDefensive: {fileID: 0}
-  flowerBudPrefabEconomic: {fileID: 0}
+  flowerBudPrefabOffensive: {fileID: 3679717070793638722, guid: 77117f563a3680d4a9511ac1b2b8a249, type: 3}
+  flowerBudPrefabDefensive: {fileID: 3845495867336707814, guid: 06a91ef1a55d35a458bbeebfe29041d9, type: 3}
+  flowerBudPrefabEconomic: {fileID: 7445205018577276849, guid: 00c280829711db64ba06c200f2fb555e, type: 3}
 --- !u!1001 &1782740126960109801
 PrefabInstance:
   m_ObjectHideFlags: 0
