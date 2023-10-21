@@ -21,6 +21,8 @@ public class WaterScript : MonoBehaviour
     private int[] _stages;
     private int currentStage = 0;
     private CharacterStatsScript playerStats;
+
+    public bool isBoosted = false;
     
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,18 @@ public class WaterScript : MonoBehaviour
             _stages[i - 1] = (int)maximumWaterCapacity / i;
         }
         playerStats = GameManager.instance.playerBehaviour.GetComponent<CharacterStatsScript>();
+    }
+
+    public void EcoFlowerBoost(float boost)
+    {
+        if (!isBoosted)
+        {
+            waterRegenSpeed *= boost;
+            isBoosted = true;
+            return;
+        }
+        
+        Debug.LogException(new Exception("EcoFlowerBoost called twice!"));
     }
 
     // Update is called once per frame
