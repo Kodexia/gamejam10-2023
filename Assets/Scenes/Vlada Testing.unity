@@ -264,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 7386011338908269337, guid: cb3446ee688ff344ebbb7a5c111b7b4d, type: 3}
   initialDelay: 5
-  spawnRate: 1
+  spawnRate: 2
   mapSize: {x: 50, y: 25}
 --- !u!4 &820453001
 Transform:
@@ -446,6 +446,14 @@ PrefabInstance:
     - target: {fileID: 3093986674054799411, guid: 83f4694f9c125714b9b0d26dfee4491d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240580607705699696, guid: 83f4694f9c125714b9b0d26dfee4491d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240580607705699696, guid: 83f4694f9c125714b9b0d26dfee4491d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5240580607705699696, guid: 83f4694f9c125714b9b0d26dfee4491d, type: 3}
       propertyPath: m_LocalPosition.x

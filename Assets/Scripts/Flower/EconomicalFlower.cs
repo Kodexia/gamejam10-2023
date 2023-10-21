@@ -35,22 +35,20 @@ public class EconomicalFlower : FlowerScript
             if (closestDistance == null)
             {
                 closestDistance = pond;
+                continue;
             }
-            else
-            {
-                Vector3 flowerPosition = flower.flowerObject.transform.position;
-                float distance = Vector3.Distance(pond.transform.position, flowerPosition);
-                float closestDistanceDistance = Vector3.Distance(closestDistance.transform.position, flowerPosition);
-                if (distance < closestDistanceDistance)
-                {
-                    closestDistance = pond;
-                }
-            }
+            
+            if(pond.GetComponent<WaterScript>().isBoosted) continue;
+            Vector3 flowerPosition = flower.flowerObject.transform.position;
+            float distance = Vector3.Distance(pond.transform.position, flowerPosition);
+            float closestDistanceDistance = Vector3.Distance(closestDistance.transform.position, flowerPosition);
+            
+            if (distance < closestDistanceDistance) closestDistance = pond;
         }
 
         if (closestDistance == null)
         {
-            Debug.LogException(new Exception("No pond found!"));
+            Debug.LogException(new Exception("No eligible pond found!"));
             return;
         }
 

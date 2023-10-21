@@ -645,11 +645,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0641faa75064dfa45addf522b489df7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grassScale: {fileID: 2427453760358567948}
+  grassScale: {fileID: 8055239320293717404}
   flowerScript: {fileID: 6565620787512798497}
   initialBonusScaling: 5
 --- !u!4 &2427453760358567948 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 351031098454047683, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+  m_PrefabInstance: {fileID: 2697393092577471439}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8055239320293717404 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5379239427743784531, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
   m_PrefabInstance: {fileID: 2697393092577471439}
   m_PrefabAsset: {fileID: 0}
