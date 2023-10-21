@@ -29,8 +29,6 @@ public class MainFlowerScript : MonoBehaviour
         flower = new FlowerMain(gameObject, radius, priority: 1);
         grassGrowth = GetComponentInChildren<GrassGrowth>();
         barScript = GetComponent<HealthBarScript>();
-        chooseFlowerCanvas.alpha = 0;
-        chooseFlowerCanvas.interactable = false;
     }
 
     void Update()

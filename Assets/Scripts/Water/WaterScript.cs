@@ -80,19 +80,12 @@ public class WaterScript : MonoBehaviour
     // Called when the water is being charged
     void ChargeWater(float amount)
     {
-        if (playerStats.CanAddWater(amount))
-        {
-            if (_currentWaterCapacity >= amount)
-            {
-                playerStats.AddWater(amount);
-                // _currentWaterCapacity = Mathf.Clamp(_currentWaterCapacity - amount, 0, maximumWaterCapacity); - NOT WORKING!
-                _currentWaterCapacity -= amount;
-                if (_currentWaterCapacity < 0)
-                    _currentWaterCapacity = 0;
-            }
-        }
+        if (!playerStats.CanAddWater(amount) || !(_currentWaterCapacity >= amount)) return;
         
-        ChangeSpriteIfNeeded();
+        playerStats.AddWater(amount);
+        _currentWaterCapacity -= amount;
+        _currentWaterCapacity = Mathf.Max(_currentWaterCapacity, 0);
+        ChangeSpriteIfNeeded(Action.Charged);
     }
 
     // Called when the water is being added
@@ -100,10 +93,10 @@ public class WaterScript : MonoBehaviour
     {
         _currentWaterCapacity = Mathf.Clamp(_currentWaterCapacity + amount, 0, maximumWaterCapacity);
 
-        ChangeSpriteIfNeeded();
+        ChangeSpriteIfNeeded(Action.Added);
     }
 
-    int CalculateStage()
+    int CalculateStageWhenCharged()
     {
         if (_currentWaterCapacity == maximumWaterCapacity)
         {
@@ -119,12 +112,52 @@ public class WaterScript : MonoBehaviour
             }
         }
 
+        if (newSpriteIndex == _stages.Count() - 1)
+        {
+            if (_currentWaterCapacity > 3)
+            {
+                newSpriteIndex = _stages.Count() - 2;
+            }
+        }
+
+        return newSpriteIndex;
+    }
+    
+    int CalculateStageWhenAdded()
+    {
+        if (_currentWaterCapacity == maximumWaterCapacity)
+        {
+            return 0;
+        }
+
+        int newSpriteIndex = _stages.Count() - 1;
+        Debug.Log("Current water capacity: " + _currentWaterCapacity + ", stages: " + _stages.Count() + ", max water capacity: " + maximumWaterCapacity);
+        for (int i = _stages.Count() - 1; i >= 0; i--)
+        {
+            Debug.Log("If result: " + (_currentWaterCapacity >= _stages[i]) + ", Current index: " + i);
+            if (_currentWaterCapacity >= _stages[i])
+            {
+                Debug.Log("Changing sprite to: " + i);
+                newSpriteIndex = i;
+            }
+        }
+        
+        Debug.Log("New sprite index: " + newSpriteIndex);
+
+        if (newSpriteIndex == _stages.Count() - 1)
+        {
+            if (_currentWaterCapacity > 3)
+            {
+                newSpriteIndex = _stages.Count() - 2;
+            }
+        }
+
         return newSpriteIndex;
     }
 
-    void ChangeSpriteIfNeeded()
+    void ChangeSpriteIfNeeded(Action action)
     {
-        int newStage = CalculateStage();
+        int newStage = action == Action.Charged ? CalculateStageWhenCharged() : CalculateStageWhenAdded();
         if (currentStage != newStage)
         {
             ChangeSprite(newStage);
@@ -143,4 +176,10 @@ public class WaterScript : MonoBehaviour
         waterSpriteRenderer.sprite = waterSprites[stage];
         currentStage = stage;
     }
+}
+
+enum Action
+{
+    Charged,
+    Added
 }
