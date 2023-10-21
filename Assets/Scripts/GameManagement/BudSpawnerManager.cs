@@ -10,7 +10,8 @@ public class SpawnerManager : MonoBehaviour
 
     private float minRadius;
     private float maxRadius;
-    public float budDiameter;
+    [SerializeField] float budDiameter = 4.5f;
+    [SerializeField] float mainFlowerDiameter = 3f;
     private List<Vector2> spawnedBuds;
     private float currentAngle = 0f;
 
@@ -29,21 +30,21 @@ public class SpawnerManager : MonoBehaviour
         spawnedBuds = new List<Vector2>();
 
 
-        SpriteRenderer budSpriteRenderer = flowerBudPrefab.GetComponentInChildren<SpriteRenderer>();
-        if (budSpriteRenderer != null)
-        {
-            budDiameter = budSpriteRenderer.sprite.bounds.size.x * flowerBudPrefab.transform.lossyScale.x;
-        }
-        else
-        {
-            Debug.LogError("flowerBudPrefab does not have a spriteRenderer");
-        }
+        //SpriteRenderer budSpriteRenderer = flowerBudPrefab.GetComponentInChildren<SpriteRenderer>();
+        //if (budSpriteRenderer != null)
+        //{
+        //    budDiameter = budSpriteRenderer.sprite.bounds.size.x * flowerBudPrefab.transform.lossyScale.x;
+        //}
+        //else
+        //{
+        //    Debug.LogError("flowerBudPrefab does not have a spriteRenderer");
+        //}
 
 
         SpriteRenderer mainFlowerSpriteRenderer = mainFlowerPrefab.GetComponentInChildren<SpriteRenderer>();
         if (mainFlowerSpriteRenderer != null)
         {
-            float mainFlowerDiameter = mainFlowerSpriteRenderer.sprite.bounds.size.x * mainFlowerPrefab.transform.lossyScale.x;
+            //mainFlowerDiameter = mainFlowerSpriteRenderer.sprite.bounds.size.x * mainFlowerPrefab.transform.lossyScale.x;
 
             minRadius = (mainFlowerDiameter / 2) + budDiameter;
             maxRadius = minRadius;
@@ -97,7 +98,9 @@ public class SpawnerManager : MonoBehaviour
                 currentAngle -= 2 * Mathf.PI;
             }
 
-            spawnPosition = new Vector2(middleRadius * Mathf.Cos(currentAngle), middleRadius * Mathf.Sin(currentAngle));
+            //spawnPosition = new Vector2(middleRadius * Mathf.Cos(currentAngle), middleRadius * Mathf.Sin(currentAngle));
+            spawnPosition = new Vector2(minRadius * Mathf.Cos(currentAngle), minRadius * Mathf.Sin(currentAngle));
+
 
             canSpawnHere = CheckIfCanSpawn(spawnPosition);
             safetyNet++;

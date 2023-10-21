@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EconomicalFlower : FlowerScript
+public class EconomicalFlower : MonoBehaviour
 {
     [SerializeField]
     private float radius = 20f;
