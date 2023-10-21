@@ -69,7 +69,7 @@ public class MainFlowerScript : MonoBehaviour
     }
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.blue;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(transform.position, radius);
     }
 }
