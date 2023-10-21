@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterStats : MonoBehaviour
+public class CharacterStatsScript : MonoBehaviour
 {
     [field: Header("Player Variables")]
     [field: SerializeField] public float movementSpeed { get; private set; } = 10f;

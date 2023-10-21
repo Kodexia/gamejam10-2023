@@ -34,7 +34,6 @@ public class Flower : IFlower
     public float MaxHealth { get; set; }
     public float WaterLevel { get; set; }
     public float MaxWaterLevel { get; set; }
-    public float MinHealth { get; set; }
     public float Radius { get; set; }
 
     public GameObject flowerObject { get; private set; }

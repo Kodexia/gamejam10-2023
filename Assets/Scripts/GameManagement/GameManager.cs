@@ -13,5 +13,5 @@ public class GameManager : MonoBehaviour
             instance = this;
     }
     [field: SerializeField] public MainFlowerScript mainFlower { get; private set; }
-    [field: SerializeField] public CharacterBehaviour playerBehaviour { get; private set; }
+    [field: SerializeField] public CharacterBehaviourScript playerBehaviour { get; private set; }
 }

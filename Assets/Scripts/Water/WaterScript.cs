@@ -20,7 +20,7 @@ public class WaterScript : MonoBehaviour
     private float _currentWaterCapacity = 0;
     private int[] _stages;
     private int currentStage = 0;
-    private CharacterStats playerStats;
+    private CharacterStatsScript playerStats;
     
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,7 @@ public class WaterScript : MonoBehaviour
         {
             _stages[i - 1] = (int)maximumWaterCapacity / i;
         }
-        playerStats = GameManager.instance.playerBehaviour.GetComponent<CharacterStats>();
+        playerStats = GameManager.instance.playerBehaviour.GetComponent<CharacterStatsScript>();
     }
 
     // Update is called once per frame

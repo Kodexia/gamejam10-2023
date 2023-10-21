@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterStats))]
-[RequireComponent(typeof(CharacterMovement))]
-public class CharacterBehaviour : MonoBehaviour
+[RequireComponent(typeof(CharacterStatsScript))]
+[RequireComponent(typeof(CharacterMovementScript))]
+public class CharacterBehaviourScript : MonoBehaviour
 {
-    CharacterMovement characterMovement;
-    CharacterStats stats;
+    CharacterMovementScript characterMovement;
+    CharacterStatsScript stats;
     MainFlowerScript mainFlower;
 
     void Start()
     {
-        characterMovement = GetComponent<CharacterMovement>();
-        stats = GetComponent<CharacterStats>();
+        characterMovement = GetComponent<CharacterMovementScript>();
+        stats = GetComponent<CharacterStatsScript>();
         mainFlower = GameManager.instance.mainFlower;
 
         characterMovement.onEnemyTarget += (string n) => { TargetEnemy(n); };
