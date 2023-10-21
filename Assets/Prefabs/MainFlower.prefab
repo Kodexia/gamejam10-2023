@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 46a3fa424f279cc4e86e5477dc6d250e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -198,6 +198,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4986175508703149306}
+  - {fileID: 2045351523151328042}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &712707813519184702
@@ -248,8 +249,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 20
+  maxWaterLevel: 100
   type: 0
-  flowerObject: {fileID: 793723652054375757}
   flowerBudPrefabOffensive: {fileID: 0}
   flowerBudPrefabDefensive: {fileID: 0}
   flowerBudPrefabEconomic: {fileID: 0}
+--- !u!1001 &1782740126960109801
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6425130281963458416}
+    m_Modifications:
+    - target: {fileID: 351031098454047683, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351031098454047683, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 351031098454047683, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351031098454047683, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 351031098454047683, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351031098454047683, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351031098454047683, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351031098454047683, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351031098454047683, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351031098454047683, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 358329254719617333, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+      propertyPath: m_Name
+      value: Grass
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874969719783505176, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+      propertyPath: flowerScript
+      value: 
+      objectReference: {fileID: 8790451832475322142}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+--- !u!4 &2045351523151328042 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 351031098454047683, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+  m_PrefabInstance: {fileID: 1782740126960109801}
+  m_PrefabAsset: {fileID: 0}
