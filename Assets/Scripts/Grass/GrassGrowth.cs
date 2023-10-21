@@ -7,17 +7,17 @@ public class GrassGrowth : MonoBehaviour
 {
     [SerializeField]
     Transform grassScale;
-
-    Transform originGrassScale;
     [SerializeField]
     MainFlowerScript flowerScript;
     Flower flower;
-    
+
+    [SerializeField]
+    float initialBonusScaling = 5;
     
     // Start is called before the first frame update
     void Start()
     {
-        originGrassScale = grassScale;
+        gameObject.transform.localScale = new Vector3(initialBonusScaling, initialBonusScaling,initialBonusScaling);
         Debug.Log(flowerScript.flower.Health);
         flower = flowerScript.flower;
     }
@@ -32,7 +32,7 @@ public class GrassGrowth : MonoBehaviour
             float procent = flower.Health / flower.MaxHealth;
             grassScale.localScale = new Vector3(procent, procent, procent);
         }
-        Debug.Log(grassScale.localScale.x);
+        Debug.Log("scaling of alive grass: " + grassScale.localScale.x);
 
     }
 }
