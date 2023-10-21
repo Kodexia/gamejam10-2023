@@ -7,10 +7,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         if (instance == null)
             instance = this;
     }
     [field: SerializeField] public MainFlowerScript mainFlower { get; private set; }
+    [field: SerializeField] public CharacterBehaviour playerBehaviour { get; private set; }
 }

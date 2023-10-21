@@ -377,10 +377,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <movementSpeed>k__BackingField: 10
+  <maxHealth>k__BackingField: 10
+  <zoneDamageHealDelay>k__BackingField: 1
+  <outsideZoneDamage>k__BackingField: 1
+  <insideZoneHeal>k__BackingField: 0.25
   <groundMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
-  <groundTag>k__BackingField: Ground
+  <enemyTag>k__BackingField: Enemy
 --- !u!70 &565726249
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -768,6 +772,9 @@ MonoBehaviour:
   radius: 20
   type: 0
   flowerObject: {fileID: 1315533034}
+  flowerBudPrefabOffensive: {fileID: 0}
+  flowerBudPrefabDefensive: {fileID: 0}
+  flowerBudPrefabEconomic: {fileID: 398694763}
 --- !u!1 &1542890125
 GameObject:
   m_ObjectHideFlags: 0
