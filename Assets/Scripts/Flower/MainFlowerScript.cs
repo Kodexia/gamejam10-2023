@@ -20,7 +20,6 @@ public class MainFlowerScript : MonoBehaviour
     void Start()
     {
         flower = new FlowerMain(gameObject, radius, priority: 1);
-        grassGrowth = GetComponentInChildren<GrassGrowth>();
     }
 
     void Update()
