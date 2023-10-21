@@ -8,7 +8,7 @@ public class MainFlowerScript : MonoBehaviour
     [SerializeField] float radius = 5f;
     [field: SerializeField] private float maxWaterLevel = 100f;
     [SerializeField] FlowerType type;
-    [SerializeField] GameObject flowerObject;
+    GameObject flowerObject;
 
     [SerializeField] GameObject flowerBudPrefabOffensive;
     [SerializeField] GameObject flowerBudPrefabDefensive;
@@ -20,12 +20,13 @@ public class MainFlowerScript : MonoBehaviour
 
     public MainFlowerScript()
     {
-        flower = new FlowerMain(gameObject, radius);
+        flower = new FlowerMain(flowerObject, radius);
     }
 
 
     void Start()
     {
+        flowerObject = gameObject;
         grassGrowth = GetComponentInChildren<GrassGrowth>();
         Debug.Log(flower.Health);
     }
