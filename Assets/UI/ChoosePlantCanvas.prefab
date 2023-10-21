@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 1413496407849930188}
   - component: {fileID: 5782647093897099318}
   - component: {fileID: 1960840048471110373}
+  - component: {fileID: 6330808220775882091}
   m_Layer: 5
   m_Name: ChoosePlantCanvas
   m_TagString: Untagged
@@ -236,6 +237,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6330808220775882091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446705731527112881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350b991fffc599744932eb6ec6c47d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script: {fileID: 0}
 --- !u!1 &4199367057639882554
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,7 +504,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5519510603071528045}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6330808220775882091}
+        m_TargetAssemblyTypeName: ChoosePlant, Assembly-CSharp
+        m_MethodName: SpawnDefensiveFlower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5070246108016676557
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,7 +849,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9159351787078829161}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6330808220775882091}
+        m_TargetAssemblyTypeName: ChoosePlant, Assembly-CSharp
+        m_MethodName: SpawnEconomicFlower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7948644374297809867
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,4 +982,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8807679748350458229}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6330808220775882091}
+        m_TargetAssemblyTypeName: ChoosePlant, Assembly-CSharp
+        m_MethodName: SpawnAttackFlower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

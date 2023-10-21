@@ -10,9 +10,9 @@ public class MainFlowerScript : MonoBehaviour
     [SerializeField] FlowerType type;
     GameObject flowerObject;
 
-    [SerializeField] GameObject flowerBudPrefabOffensive;
-    [SerializeField] GameObject flowerBudPrefabDefensive;
-    [SerializeField] GameObject flowerBudPrefabEconomic;
+    [SerializeField] public GameObject flowerBudPrefabOffensive;
+    [SerializeField] public GameObject flowerBudPrefabDefensive;
+    [SerializeField] public GameObject flowerBudPrefabEconomic;
     GrassGrowth grassGrowth;
 
     public FlowerMain flower;
@@ -65,12 +65,11 @@ public class MainFlowerScript : MonoBehaviour
 
     //on water fill
 
-    void NewBud(GameObject flowerBudPrefab)
+    public void NewBud(GameObject flowerBudPrefab)
     {
         currentWaterLevel = 0;
 
         flower.ShootOutBud(new Vector2(1, 1), flowerBudPrefab);
-
         Debug.Log("Shot new bud!");
     }
     
