@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EconomicalFlower : MonoBehaviour
+public class EconomicalFlower : FlowerScript
 {
     [SerializeField]
     private float boostSpeed = 2f;

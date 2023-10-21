@@ -285,6 +285,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 2051829769
       objectReference: {fileID: 0}
+    - target: {fileID: 4874969719783505176, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+      propertyPath: flowerScript
+      value: 
+      objectReference: {fileID: 6565620787512798497}
     - target: {fileID: 7036868499372354188, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
       propertyPath: m_BackSortingLayer
       value: -1
