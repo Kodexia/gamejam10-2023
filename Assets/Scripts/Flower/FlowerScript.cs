@@ -10,6 +10,7 @@ public abstract class FlowerScript : MonoBehaviour
     [SerializeField] FlowerType type;
     [SerializeField] GameObject flowerObject;
     [SerializeField] float maxHealth = 100f;
+    GrassGrowth grassGrowth;
 
     public Flower flower;
     private HealthBarScript barScript;
@@ -20,6 +21,7 @@ public abstract class FlowerScript : MonoBehaviour
     {
         flower = new Flower(gameObject, type, radius, maxHealth);
         barScript = GetComponent<HealthBarScript>();
+        grassGrowth = GetComponentInChildren<GrassGrowth>();
         FlowerStart();
     }
 

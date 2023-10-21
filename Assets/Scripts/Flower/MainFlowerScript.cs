@@ -39,7 +39,6 @@ public class MainFlowerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             flower.TakeDamage(10);
-            grassGrowth.ChangeScale();
             Debug.Log("Current health of flower: " + flower.Health);
         }
     }

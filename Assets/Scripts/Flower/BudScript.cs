@@ -15,6 +15,7 @@ public class BudScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GrassGrowth script = GetComponentInChildren<GrassGrowth>();
         flower = new Flower(flowerObject, type, radius);
     }
 
