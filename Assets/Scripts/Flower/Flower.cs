@@ -14,8 +14,8 @@ public enum FlowerType
 public interface IFlower
 {
     FlowerType Type { get; }
-    int Health { get; set; }
-    int MaxHealth { get; set; }
+    float Health { get; set; }
+    float MaxHealth { get; set; }
     float Radius { get; set; }
     void TakeDamage(int amount);
     GameObject flowerObject {  get; }
@@ -27,8 +27,8 @@ public class Flower : IFlower
 {
     public FlowerType Type { get; private set; }
 
-    public int Health { get; set; }
-    public int MaxHealth { get; set; }
+    public float Health { get; set; }
+    public float MaxHealth { get; set; }
     public float Radius { get; set; }
 
     public GameObject flowerObject { get; private set; }
@@ -37,7 +37,7 @@ public class Flower : IFlower
     public Flower(GameObject flower, FlowerType type, float radius, int maxHealth = 100)
     {
         this.Type = type;
-        this.Health = 100;
+        this.Health = 100f;
         this.Radius = radius;
         this.flowerObject = flower;
         MaxHealth = maxHealth;
@@ -51,12 +51,13 @@ public class Flower : IFlower
         {
             DestroyFlower();
         }
+        
     }
 
 
     private void DestroyFlower()
     {
-
+        
     }
 }
 
