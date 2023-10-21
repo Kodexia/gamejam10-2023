@@ -13,6 +13,7 @@ public class EconomicalFlower : FlowerScript
 
     protected override void FlowerStart()
     {
+        flower.Priority = 2;
         InitFlower();
     }
 

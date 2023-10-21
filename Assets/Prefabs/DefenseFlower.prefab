@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 5928455997778315345}
   m_Layer: 0
   m_Name: DefenseFlower
-  m_TagString: Untagged
+  m_TagString: Flower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
