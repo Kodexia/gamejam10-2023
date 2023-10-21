@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 157534267}
   - component: {fileID: 157534266}
   - component: {fileID: 157534265}
+  - component: {fileID: 157534271}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -309,6 +310,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &157534271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157534264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e664b49b7f0b88048a147b9417911635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &181026837
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +444,11 @@ Transform:
   - {fileID: 1452838929}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &543087915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8670256761736191321, guid: 4fb27f110438c8d439d30029585a8fcf, type: 3}
+  m_PrefabInstance: {fileID: 1278995804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &778011774
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <mainFlower>k__BackingField: {fileID: 7011645230904336243}
-  <playerBehaviour>k__BackingField: {fileID: 0}
+  <playerBehaviour>k__BackingField: {fileID: 157534271}
   <playerTag>k__BackingField: Player
   <enemyTag>k__BackingField: Enemy
   <flowerTag>k__BackingField: Flower
@@ -660,6 +678,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4561171155508840026, guid: 4fb27f110438c8d439d30029585a8fcf, type: 3}
+      propertyPath: pondObject
+      value: 
+      objectReference: {fileID: 543087915}
+    - target: {fileID: 4561171155508840026, guid: 4fb27f110438c8d439d30029585a8fcf, type: 3}
+      propertyPath: waterSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 419239365f474f34498aadafdeb973bb, type: 3}
+    - target: {fileID: 4561171155508840026, guid: 4fb27f110438c8d439d30029585a8fcf, type: 3}
+      propertyPath: waterSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 09220d4bb447e454f8da584e54bb6c20, type: 3}
+    - target: {fileID: 4561171155508840026, guid: 4fb27f110438c8d439d30029585a8fcf, type: 3}
+      propertyPath: waterSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: b3be71775e62a974aae8ba668c000bd5, type: 3}
+    - target: {fileID: 4561171155508840026, guid: 4fb27f110438c8d439d30029585a8fcf, type: 3}
+      propertyPath: waterSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: f19ef9a9b2fa4f947965c1eca28005ef, type: 3}
     - target: {fileID: 7811635624642049271, guid: 4fb27f110438c8d439d30029585a8fcf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
