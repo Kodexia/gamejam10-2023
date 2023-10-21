@@ -262,9 +262,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf33d2deee56e141b048526ecf3bec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 660133630689082428, guid: 5fcc5f4413128a446893376de46e3a40, type: 3}
   initialDelay: 5
-  spawnRate: 1
+  spawnRate: 2
   mapSize: {x: 50, y: 25}
 --- !u!4 &820453001
 Transform:
@@ -446,6 +446,14 @@ PrefabInstance:
     - target: {fileID: 3093986674054799411, guid: 83f4694f9c125714b9b0d26dfee4491d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240580607705699696, guid: 83f4694f9c125714b9b0d26dfee4491d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240580607705699696, guid: 83f4694f9c125714b9b0d26dfee4491d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5240580607705699696, guid: 83f4694f9c125714b9b0d26dfee4491d, type: 3}
       propertyPath: m_LocalPosition.x

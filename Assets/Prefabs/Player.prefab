@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3093986674054799411}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.97, y: 6.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a1efe0d0d3cb3ba4bb4bc8cad7c3fc15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,7 +125,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67c6219d96c8dc45aac9b07db98b584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directionalSprites: []
+  directionalSprites:
+  - {fileID: 21300000, guid: b6ddf43dc98e02b43ba88a5ef50fedb4, type: 3}
+  - {fileID: 21300000, guid: 964a08eacbb52a64998752096daffd26, type: 3}
+  - {fileID: 21300000, guid: 99c257bf10686404da3ddb13a5d463f3, type: 3}
+  - {fileID: 21300000, guid: b1d31756a72e27740be9ef36e6153c0e, type: 3}
+  - {fileID: 21300000, guid: f4be59c01ac48b441a0c6a8dabe0e54a, type: 3}
+  - {fileID: 21300000, guid: bc1da170ee767a64cb7d87084053cdd5, type: 3}
+  - {fileID: 21300000, guid: cd714b261a5855d438a4907b26afe021, type: 3}
+  - {fileID: 21300000, guid: e31df03a3caa35f489fa57eb875cad43, type: 3}
 --- !u!70 &4140213737997478148
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
