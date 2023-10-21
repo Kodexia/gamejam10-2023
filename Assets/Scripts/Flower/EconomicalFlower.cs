@@ -6,29 +6,19 @@ using UnityEngine;
 public class EconomicalFlower : FlowerScript
 {
     [SerializeField]
-    private float radius = 20f;
-    
-    [SerializeField]
-    private GameObject flowerObject;
-    
-    [SerializeField]
-    private FlowerType type;
-    
-    [SerializeField]
-    private float maxHealth = 80f;
-    
-    [SerializeField]
     private float boostSpeed = 2f;
-
-    public Flower Flower { get; private set; }
 
     private WaterScript _selectedPond;
     private bool _isInitialized = false;
-    
-    void Start()
+
+    protected override void FlowerStart()
     {
-        Flower = new Flower(flowerObject, FlowerType.Economic, radius, maxHealth);
         InitFlower();
+    }
+
+    protected override void FlowerUpdate()
+    {
+        // Isn't needed right now
     }
     
     // Choose closest pond to flower
@@ -47,7 +37,7 @@ public class EconomicalFlower : FlowerScript
             }
             else
             {
-                Vector3 flowerPosition = flowerObject.transform.position;
+                Vector3 flowerPosition = flower.flowerObject.transform.position;
                 float distance = Vector3.Distance(pond.transform.position, flowerPosition);
                 float closestDistanceDistance = Vector3.Distance(closestDistance.transform.position, flowerPosition);
                 if (distance < closestDistanceDistance)
