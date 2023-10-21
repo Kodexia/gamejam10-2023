@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(HealthBarScript))]
 
 public abstract class FlowerScript : MonoBehaviour
 {
     [SerializeField] float radius = 20f;
     [SerializeField] FlowerType type;
     [SerializeField] GameObject flowerObject;
-    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] float maxHealth = 100f;
 
     public Flower flower;
+    private HealthBarScript barScript;
 
 
     // Start is called before the first frame update
     void Awake()
     {
         flower = new Flower(gameObject, type, radius, maxHealth);
+        barScript = GetComponent<HealthBarScript>();
         FlowerStart();
     }
 
@@ -24,6 +27,7 @@ public abstract class FlowerScript : MonoBehaviour
     void Update()
     {
         FlowerUpdate();
+        barScript.UpdateHealthbar(flower.Health, maxHealth);
     }
 
     protected abstract void FlowerStart();

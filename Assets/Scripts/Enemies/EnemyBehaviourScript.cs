@@ -46,6 +46,7 @@ public class EnemyBehaviourScript : MonoBehaviour
     {
         flowersInRange = GetNearbyFlowers();
         List<FlowerScript> nearbyFlowers = new();
+        Debug.Log($"Count: {flowersInRange.Count}");
         if (flowersInRange.Count > 0)
             nearbyFlowers = flowersInRange.Where(flower => flower.flower.Priority == priority).ToList();
         else
