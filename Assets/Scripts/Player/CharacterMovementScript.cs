@@ -10,7 +10,7 @@ public class CharacterMovementScript : MonoBehaviour
 {
     CharacterStatsScript stats;
     Vector3 movePosition;
-    public Action<string> onEnemyTarget;
+    public Action<EnemyBehaviourScript> onEnemyTarget;
     void Start()
     {
         stats = GetComponent<CharacterStatsScript>();
@@ -31,7 +31,7 @@ public class CharacterMovementScript : MonoBehaviour
             RaycastHit2D clickRaycast = Physics2D.Raycast(mousePositionInWorld, Vector3.forward * 50, 50);
             if (clickRaycast.collider != null)
                 if (clickRaycast.collider.CompareTag(stats.enemyTag))
-                    onEnemyTarget?.Invoke(clickRaycast.collider.name);
+                    onEnemyTarget?.Invoke(clickRaycast.collider.GetComponent<EnemyBehaviourScript>());
         }
 
         // Move, if you have a point to go

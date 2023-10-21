@@ -9,6 +9,7 @@ public class CharacterBehaviourScript : MonoBehaviour
     CharacterMovementScript characterMovement;
     CharacterStatsScript stats;
     MainFlowerScript mainFlower;
+    EnemyBehaviourScript targetEnemy;
 
     void Start()
     {
@@ -16,7 +17,7 @@ public class CharacterBehaviourScript : MonoBehaviour
         stats = GetComponent<CharacterStatsScript>();
         mainFlower = GameManager.instance.mainFlower;
 
-        characterMovement.onEnemyTarget += (string n) => { TargetEnemy(n); };
+        characterMovement.onEnemyTarget += (EnemyBehaviourScript en) => { TargetEnemy(en); };
 
         StartCoroutine(DamageOnOutsideZone());
     }
@@ -24,15 +25,14 @@ public class CharacterBehaviourScript : MonoBehaviour
     {
         HydrateFlowerIfCan();
     }
-    void TargetEnemy(string name)
+    void TargetEnemy(EnemyBehaviourScript en)
     {
-        Debug.Log($"Targeted {name}");
+        targetEnemy = en;
+        Debug.Log($"Targeted {en.name}");
     }
 
     void DamageAndHeal()
     {
-        Flower flower = mainFlower.flower;
-
         if (!mainFlower.IsPlayerInRange(transform.position))
             stats.Hit(stats.outsideZoneDamage);
         else
@@ -52,6 +52,7 @@ public class CharacterBehaviourScript : MonoBehaviour
     {
         while (true)
         {
+            //Debug.Log(mainFlower);
             DamageAndHeal();
             yield return new WaitForSeconds(stats.zoneDamageHealDelay);
         }
