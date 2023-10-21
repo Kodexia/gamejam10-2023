@@ -26,7 +26,7 @@ public class EnemyBehaviourScript : MonoBehaviour
             targetFlower = FindClosestFlowerWithPriority(3);
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * enemyStats.movementSpeed);
+            this.transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * enemyStats.movementSpeed);
 
             float distance = Vector3.Distance(transform.position, targetPos);
             if (distance <= 0.3f)
@@ -51,7 +51,7 @@ public class EnemyBehaviourScript : MonoBehaviour
             nearbyFlowers = flowersInRange.Where(flower => flower.flower.Priority == priority).ToList();
         else
             if (priority > 0)
-                FindClosestFlowerWithPriority(priority-1);
+            FindClosestFlowerWithPriority(priority - 1);
 
         nearbyFlowers = nearbyFlowers.OrderBy(flower => Vector3.Distance(transform.position, flower.flower.flowerObject.transform.position)).ToList();
         if (nearbyFlowers.Count > 0)
