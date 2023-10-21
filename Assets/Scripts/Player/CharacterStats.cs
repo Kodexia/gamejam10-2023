@@ -32,7 +32,7 @@ public class CharacterStats : MonoBehaviour
         Debug.Log("You died!");
         Destroy(gameObject);
     }
-    
+
     public void Heal(float heal)
     {
         currentHealth += heal;

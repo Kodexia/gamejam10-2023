@@ -14,14 +14,15 @@ public class MainFlowerScript : MonoBehaviour
 
     public FlowerMain flower;
 
-    public MainFlowerScript() {
+    public MainFlowerScript()
+    {
         flower = new FlowerMain(flowerObject, radius);
     }
 
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -33,7 +34,7 @@ public class MainFlowerScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            NewBud(flowerBudPrefabEconomic); 
+            NewBud(flowerBudPrefabEconomic);
 
             Debug.Log("Player has collided with the flower!");
         }
@@ -45,7 +46,7 @@ public class MainFlowerScript : MonoBehaviour
     {
         flower.ShootOutBud(new Vector2(1, 1), flowerBudPrefab);
     }
-    
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;

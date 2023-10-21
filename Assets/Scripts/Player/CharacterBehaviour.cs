@@ -38,7 +38,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     private IEnumerator DamageOnOutsideZone()
     {
-        while(true)
+        while (true)
         {
             DamageAndHeal();
             yield return new WaitForSeconds(stats.zoneDamageHealDelay);
