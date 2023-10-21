@@ -15,7 +15,7 @@ public class FlowerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        flower = new Flower(flowerObject, type, radius);
+        flower = new Flower(gameObject, type, radius);
     }
 
     // Update is called once per frame
