@@ -45,6 +45,8 @@ public class CharacterMovementScript : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, movePosition, Time.deltaTime * stats.movementSpeed);
             UpdateSpriteDirection();
         }
+        //else
+            //spriteRenderer.sprite = directionalSprites[8];
     }
     // This method returns bool depending on if the player should be moving somewhere or not
     private bool ShouldMove()
@@ -73,9 +75,12 @@ public class CharacterMovementScript : MonoBehaviour
         else if (angle < -67.5f && angle >= -112.5f)
             spriteIndex = 6; // bottom
         else if (angle < -112.5f && angle >= -157.5f)
-            spriteIndex = 7; // bottom-right
+            spriteIndex = 7; // bottom-left
 
         spriteRenderer.sprite = directionalSprites[spriteIndex];
     }
-
+    public void StopMovement()
+    {
+        movePosition = transform.position;
+    }
 }

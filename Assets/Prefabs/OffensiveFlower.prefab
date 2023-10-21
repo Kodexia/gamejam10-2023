@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 4052454969029968451}
   m_Layer: 0
   m_Name: OffensiveFlower
-  m_TagString: Untagged
+  m_TagString: Flower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

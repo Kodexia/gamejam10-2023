@@ -1,21 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterStatsScript))]
 [RequireComponent(typeof(CharacterMovementScript))]
+[RequireComponent(typeof(Animator))]
 public class CharacterBehaviourScript : MonoBehaviour
 {
     CharacterMovementScript characterMovement;
     CharacterStatsScript stats;
     MainFlowerScript mainFlower;
     EnemyBehaviourScript targetEnemy;
-
+    Animator animator;
     void Start()
     {
         characterMovement = GetComponent<CharacterMovementScript>();
         stats = GetComponent<CharacterStatsScript>();
         mainFlower = GameManager.instance.mainFlower;
+        animator = GetComponent<Animator>();
 
         characterMovement.onEnemyTarget += (EnemyBehaviourScript en) => { TargetEnemy(en); };
 
@@ -24,6 +27,15 @@ public class CharacterBehaviourScript : MonoBehaviour
     private void Update()
     {
         HydrateFlowerIfCan();
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 dir = Vector3.Normalize((Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position));
+
+            characterMovement.StopMovement();
+            animator.SetFloat("Horizontal", -dir.x);
+            animator.SetFloat("Vertical", -dir.y);
+            animator.SetTrigger("Attack");
+        }
     }
     void TargetEnemy(EnemyBehaviourScript en)
     {

@@ -13,6 +13,7 @@ public class CharacterStatsScript : MonoBehaviour
     [field: SerializeField] public float maxWaterLevel { get; private set; } = 100f;
     [field: SerializeField] public float waterSuckSpeed { get; private set; } = 0.05f;
     [field: SerializeField] public float waterDrainSpeed { get; private set; } = 1f;
+    [field: SerializeField] public float attackDamage { get; private set; } = 2.5f;
     public float currentHealth { get; private set; } = 10f;
     public float currentWaterLevel { get; private set; } = 0f;
 
