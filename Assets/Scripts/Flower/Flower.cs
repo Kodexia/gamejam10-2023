@@ -19,6 +19,8 @@ public interface IFlower
     float WaterLevel { get; set; }
     float MaxWaterLevel { get; set; }
     float Radius { get; set; }
+    public float Priority { get; set; }
+
     void TakeDamage(float amount);
     void increaseWaterLevel(float amount);
     void decreaseWaterLevel(float amount);
@@ -35,7 +37,7 @@ public class Flower : IFlower
     public float WaterLevel { get; set; }
     public float MaxWaterLevel { get; set; }
     public float Radius { get; set; }
-
+    public float Priority { get; set; }
     public GameObject flowerObject { get; private set; }
 
 

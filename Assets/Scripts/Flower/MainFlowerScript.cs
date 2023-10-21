@@ -20,7 +20,7 @@ public class MainFlowerScript : MonoBehaviour
 
     public MainFlowerScript()
     {
-        flower = new FlowerMain(flowerObject, radius);
+        flower = new FlowerMain(gameObject, radius);
     }
 
 

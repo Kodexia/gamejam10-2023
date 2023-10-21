@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyStatsScript))]
@@ -7,37 +8,40 @@ public class EnemyBehaviourScript : MonoBehaviour
 {
     EnemyStatsScript enemyStats;
     List<Flower> flowersInRange = new List<Flower>();
+    Flower targetFlower;
+    bool hasTarget { get { return (targetFlower != null); } }
     private void Start()
     {
         enemyStats = GetComponent<EnemyStatsScript>();
     }
     private void Update()
     {
-        UpdateList();
+        FindClosestFlowerWithPriority(3);
     }
-    private void UpdateList()
+    private Flower FindClosestFlowerWithPriority(int priority)
     {
-        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, enemyStats.attackRadius);
-        SortTargetArray(ref cols);
-    }
-    private void SortTargetArray(ref Collider2D[] cols)
-    {
-        for (int i = 0; i < cols.Length - 1; i++)
+        flowersInRange = GetNearbyFlowers();
+        List<Flower> nearbyFlowers = flowersInRange.Where(flower => flower.Priority == priority).ToList();
+
+        if (nearbyFlowers.Count == 0)
         {
-            for (int j = 0; j < cols.Length - i - 1; i++)
-            {
-                if (GetDistance(cols[j].transform.position) > GetDistance(cols[j + 1].transform.position))
-                {
-                    Collider2D temp = cols[j];
-                    cols[j] = cols[j + 1];
-                    cols[j + 1] = temp;
-                }
-            }
+            if (priority > 0)
+                FindClosestFlowerWithPriority(priority-1);
         }
+
+        nearbyFlowers = nearbyFlowers.OrderBy(flower => Vector3.Distance(transform.position, flower.flowerObject.transform.position)).ToList();
+
+        return nearbyFlowers[0];
     }
-    private float GetDistance(Vector3 obj)
+    private List<Flower> GetNearbyFlowers()
     {
-        return (Vector3.Distance(transform.position, obj));
+        List<Flower> nearbyFlowers = new();
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, enemyStats.attackRadius);
+        foreach (Collider2D collider in colliders)
+        {
+            nearbyFlowers.Add(collider.gameObject.GetComponent<Flower>());
+        }
+        return nearbyFlowers;
     }
     private void OnDrawGizmosSelected()
     {
