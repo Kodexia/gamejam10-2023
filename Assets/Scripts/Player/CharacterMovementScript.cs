@@ -11,8 +11,13 @@ public class CharacterMovementScript : MonoBehaviour
     CharacterStatsScript stats;
     Vector3 movePosition;
     public Action<EnemyBehaviourScript> onEnemyTarget;
-    void Start()
+
+    [SerializeField] public Sprite[] directionalSprites; // Assuming you have 8 sprites in the order: N, NE, E, SE, S, SW, W, NW
+    private SpriteRenderer spriteRenderer;
+
+  void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         stats = GetComponent<CharacterStatsScript>();
         movePosition = transform.position;
     }
@@ -36,7 +41,10 @@ public class CharacterMovementScript : MonoBehaviour
 
         // Move, if you have a point to go
         if (ShouldMove())
+        {
             transform.position = Vector3.MoveTowards(transform.position, movePosition, Time.deltaTime * stats.movementSpeed);
+            UpdateSpriteDirection();
+        }
     }
     // This method returns bool depending on if the player should be moving somewhere or not
     private bool ShouldMove()
@@ -44,4 +52,30 @@ public class CharacterMovementScript : MonoBehaviour
         bool isOnPosition = (transform.position == movePosition);
         return !isOnPosition;
     }
+    private void UpdateSpriteDirection()
+    {
+        Vector3 direction = movePosition - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        int spriteIndex = 0;
+        if (angle < -157.5f && angle >= 157.5f) 
+            spriteIndex = 0; // LEFT
+        else if (angle < 157.5f && angle >= 112.5f) 
+            spriteIndex = 1; // TOP-LEFT
+        else if (angle < 112.5f && angle >= 67.5f) 
+            spriteIndex = 2; // TOP
+        else if (angle < 67.5f && angle >= 22.5f)
+            spriteIndex = 3; // TOP-RIGHT
+        else if (angle < 22.5f && angle >= -22.5)
+            spriteIndex = 4; // RIGHT
+        else if (angle < -22.5f && angle >= -67.5f)
+            spriteIndex = 5; // BOTTOM-RIGHT
+        else if (angle < -67.5f && angle >= -112.5f)
+            spriteIndex = 6; // bottom
+        else if (angle < -112.5f && angle >= -157.5f)
+            spriteIndex = 7; // bottom-right
+
+        spriteRenderer.sprite = directionalSprites[spriteIndex];
+    }
+
 }

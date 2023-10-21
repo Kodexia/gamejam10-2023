@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class MainFlowerScript : MonoBehaviour
     [SerializeField] FlowerType type;
     GameObject flowerObject;
 
+    [SerializeField] public CanvasGroup chooseFlowerCanvas;
     [SerializeField] public GameObject flowerBudPrefabOffensive;
     [SerializeField] public GameObject flowerBudPrefabDefensive;
     [SerializeField] public GameObject flowerBudPrefabEconomic;
@@ -47,6 +49,7 @@ public class MainFlowerScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag(GameManager.instance.playerTag))
         {
+            
             //BudSpawnerManager.instance.SpawnNewFlowerBud(flowerBudPrefabDefensive);
             //EnemySpawnerManager.instance.ChangeSpawnRate(0.001f);
 
@@ -58,7 +61,13 @@ public class MainFlowerScript : MonoBehaviour
     {
         currentWaterLevel += water;
         if (currentWaterLevel >= maxWaterLevel)
-            NewBud(flowerBudPrefabDefensive); //TODO -> Change the parameter to some dynamic changing of the bud prefabs
+        {
+            chooseFlowerCanvas.alpha = 1;
+            chooseFlowerCanvas.interactable = true;
+            Time.timeScale = 0;
+        }
+
+             //TODO -> Change the parameter to some dynamic changing of the bud prefabs
     }
 
 
