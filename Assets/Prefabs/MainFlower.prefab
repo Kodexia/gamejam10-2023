@@ -306,10 +306,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass
       objectReference: {fileID: 0}
+    - target: {fileID: 2987096630765971884, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.017751455
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987096630765971884, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987096630765971884, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4874969719783505176, guid: 4448ea7fea7ec6840982ab0e4ef910b0, type: 3}
       propertyPath: flowerScript
       value: 
-      objectReference: {fileID: 8790451832475322142}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
