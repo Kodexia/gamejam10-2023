@@ -282,6 +282,14 @@ PrefabInstance:
       propertyPath: waterDrainAudio
       value: 
       objectReference: {fileID: 2456578750058973283, guid: 1af607718aaf6084fb24b620daf43704, type: 3}
+    - target: {fileID: 1773090167200530173, guid: 1e7f39b865cd54f4b94412cea2b44612, type: 3}
+      propertyPath: <waterSuckSpeed>k__BackingField
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773090167200530173, guid: 1e7f39b865cd54f4b94412cea2b44612, type: 3}
+      propertyPath: <waterDrainSpeed>k__BackingField
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2332656685811849989, guid: 1e7f39b865cd54f4b94412cea2b44612, type: 3}
       propertyPath: attackAudio
       value: 

@@ -8,7 +8,7 @@ public class SceneLoading : MonoBehaviour
 {
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("MainGameScene");
+        SceneManager.LoadScene("Cutscene");
         Time.timeScale = 1.0f;
 
     }
