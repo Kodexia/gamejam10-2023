@@ -8,11 +8,16 @@ public class SceneLoading : MonoBehaviour
 {
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("MainGameScene");        
+        SceneManager.LoadScene("MainGameScene");
+        Time.timeScale = 1.0f;
+
     }
     public void LoadMenuScene()
     {
+
         SceneManager.LoadScene("MainMenuScene");
+        Time.timeScale = 1.0f;
+
     }
     public void ExitGame()
     {

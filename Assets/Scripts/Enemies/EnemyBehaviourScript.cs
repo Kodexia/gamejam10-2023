@@ -134,6 +134,6 @@ public class EnemyBehaviourScript : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, enemyStats.attackRadius);
+        //Gizmos.DrawSphere(transform.position, enemyStats.attackRadius);
     }
 }

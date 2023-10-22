@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 
-public class PlayerAttackCollider : MonoBehaviour
+public class AllyAttackCollider : MonoBehaviour
 {
     CharacterStatsScript stats;
+    AllyBehaviourScript myStats;
+
     private void Start()
     {
         stats = GameManager.instance.playerBehaviour.GetComponent<CharacterStatsScript>();
+        myStats = transform.parent.GetComponent<AllyBehaviourScript>();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision);
         if (collision.collider.CompareTag(GameManager.instance.enemyTag))
-            collision.collider.GetComponent<EnemyStatsScript>().GetHit(stats.attackDamage/2);
+            if (collision.collider.GetComponent<EnemyStatsScript>().GetHit(stats.attackDamage / 2))
+                myStats.Killed();
+
     }
 }
