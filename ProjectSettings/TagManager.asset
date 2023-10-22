@@ -52,3 +52,6 @@ TagManager:
   - name: Foreground
     uniqueID: 154487141
     locked: 0
+  - name: WaterBar
+    uniqueID: 4289410721
+    locked: 0
