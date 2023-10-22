@@ -34,11 +34,14 @@ public class EconomicalFlower : FlowerScript
         {
             if (closestDistance == null)
             {
+                if(pond.GetComponent<WaterScript>().isBoosted) continue;
+                
                 closestDistance = pond;
                 continue;
             }
             
             if(pond.GetComponent<WaterScript>().isBoosted) continue;
+            
             Vector3 flowerPosition = flower.flowerObject.transform.position;
             float distance = Vector3.Distance(pond.transform.position, flowerPosition);
             float closestDistanceDistance = Vector3.Distance(closestDistance.transform.position, flowerPosition);

@@ -5,27 +5,31 @@ using UnityEngine;
 
 public class ChoosePlant : MonoBehaviour
 {
-    [SerializeField]
-    MainFlowerScript script;
+    private MainFlowerScript _script;
+    
+    void Start()
+    {
+        _script = GameManager.instance.mainFlower;
+    }
 
     public void SpawnAttackFlower()
     {
         Debug.Log("Spawned attack");
-        script.NewBud(GameManager.instance.flowerBudPrefabOffensive);
+        _script.NewBud(GameManager.instance.flowerBudPrefabOffensive);
         Time.timeScale = 1.0f;
         gameObject.SetActive(false);
     }
     public void SpawnDefensiveFlower()
     {
         Debug.Log("Spawned defensive");
-        script.NewBud(GameManager.instance.flowerBudPrefabDefensive);
+        _script.NewBud(GameManager.instance.flowerBudPrefabDefensive);
         Time.timeScale = 1.0f;
         gameObject.SetActive(false);
     }
     public void SpawnEconomicFlower()
     {
         Debug.Log("Spawned economic");
-        script.NewBud(GameManager.instance.flowerBudPrefabEconomic);
+        _script.NewBud(GameManager.instance.flowerBudPrefabEconomic);
         Time.timeScale = 1.0f;
         gameObject.SetActive(false);
     }
