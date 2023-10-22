@@ -161,7 +161,7 @@ public class BudSpawnerManager : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
-            Debug.Log(collider.name);
+            //Debug.Log(collider.name);
             if (collider.CompareTag(pondTag))
             {
                 Debug.Log("found pond!");

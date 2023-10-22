@@ -93,7 +93,7 @@ public class Flower : IFlower
     }
 
 
-    private void DestroyFlower()
+    public void DestroyFlower()
     {
        
     }
@@ -102,7 +102,7 @@ public class Flower : IFlower
 public class FlowerMain : Flower
 {
 
-    public FlowerMain(GameObject flower, float radius, int priority = 3) : base(flower, FlowerType.Main, radius, priority)
+    public FlowerMain(GameObject flower, float radius, int priority = 3, float hp = 100) : base(flower, FlowerType.Main, radius, hp, priority)
     {
 
     }
