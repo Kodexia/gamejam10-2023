@@ -43,7 +43,6 @@ public class EnemyBehaviourScript : MonoBehaviour
                     hasTarget = false;
                     isAttacking = true;
                     StartCoroutine(Attack(targetPos - transform.position));
-                    Debug.Log("In range!");
                     // implement the change of target on destroyed flower
                 }
             }
@@ -101,7 +100,6 @@ public class EnemyBehaviourScript : MonoBehaviour
     {
         flowersInRange = GetNearbyFlowers();
         List<FlowerScript> nearbyFlowers = new();
-        Debug.Log($"Count: {flowersInRange.Count}");
         if (flowersInRange.Count > 0)
             nearbyFlowers = flowersInRange.Where(flower => flower.flower.Priority == priority).ToList();
         else
@@ -132,7 +130,6 @@ public class EnemyBehaviourScript : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, enemyStats.attackRadius);
         foreach (Collider2D collider in colliders)
         {
-            Debug.Log(collider.gameObject.name);
             if (collider.CompareTag(flowerTag))
                 nearbyFlowers.Add(collider.gameObject.GetComponent<FlowerScript>());
         }
