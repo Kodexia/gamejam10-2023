@@ -8,14 +8,12 @@ using Unity.VisualScripting;
 public class AllyBehaviourScript : MonoBehaviour
 {
     EnemyStatsScript enemyStats;
-    List<GameObject> enemiesInRange = new List<GameObject>();
-    GameObject targetFlower = null;
+    List<AllyBehaviourScript> enemiesInRange = new List<AllyBehaviourScript>();
 
-    MainFlowerScript mainFlower;
     Vector3 targetPos = Vector3.zero;
 
     bool hasTarget = false; //{ get { return (targetPos != null); } } NOT WORKING
-
+    AllyBehaviourScript targetEnemy;
     string flowerTag;
     string allyTag;
     string enemyTag;
@@ -24,8 +22,6 @@ public class AllyBehaviourScript : MonoBehaviour
         enemyStats = GetComponent<EnemyStatsScript>();
 
         flowerTag = GameManager.instance.flowerTag;
-        mainFlower = GameManager.instance.mainFlower;
-
         allyTag = GameManager.instance.allyTag;
         enemyTag = GameManager.instance.enemyTag;
     }
@@ -33,7 +29,7 @@ public class AllyBehaviourScript : MonoBehaviour
     {
         Debug.Log(hasTarget);
         if (!hasTarget)
-            targetFlower = FindClosestEnemy(); //change
+            targetEnemy = FindClosestEnemy(); //change
         else
         {
             Debug.Log("moving-------------------------------------------------------------");
@@ -57,11 +53,11 @@ public class AllyBehaviourScript : MonoBehaviour
         hasTarget = true;
     }
 
-    private GameObject FindClosestEnemy()
+    private AllyBehaviourScript FindClosestEnemy()
     {
         enemiesInRange = GetNearbyEnemies();
 
-        List<GameObject> nearbyEnemies = new();
+        List<AllyBehaviourScript> nearbyEnemies = new();
 
         //Debug.Log($"Count: {enemiesInRange.Count}");
 
@@ -81,14 +77,14 @@ public class AllyBehaviourScript : MonoBehaviour
         }
         else
         {
-            SetTargetPosition(mainFlower.transform.position);
+            //SetTargetPosition(mainFlower.transform.position);
             return null;
         }
     }
-    private List<GameObject> GetNearbyEnemies()
+    private List<AllyBehaviourScript> GetNearbyEnemies()
     {
         Debug.Log("_____________________________________________________________");
-        List<GameObject> nearbyEnemies = new();
+        List<AllyBehaviourScript> nearbyEnemies = new();
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, enemyStats.attackRadius);
 
@@ -99,7 +95,7 @@ public class AllyBehaviourScript : MonoBehaviour
             {
                 Debug.Log("found enemy!");
 
-                nearbyEnemies.Add(collider.gameObject);
+                nearbyEnemies.Add(collider.gameObject.GetComponent<AllyBehaviourScript>());
             }
                 
         }
