@@ -361,13 +361,14 @@ GameObject:
   - component: {fileID: 4616279756859711892}
   - component: {fileID: 7214837365275153455}
   - component: {fileID: 6453942239407374924}
+  - component: {fileID: 7837456085728899717}
   m_Layer: 5
   m_Name: MainMenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6426407428005388325
 RectTransform:
   m_ObjectHideFlags: 0
@@ -463,6 +464,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56291e7b6e81c564b96ce0b3ce0af16b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7837456085728899717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3364129785072268287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a0b8e1a44e57c94fae9fcdd70c3d47a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3377742344386289445
@@ -1177,6 +1190,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: OnClickPlaySFX, Assembly-CSharp
+        m_MethodName: playSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7340164535011245503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,6 +1323,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: OnClickPlaySFX, Assembly-CSharp
+        m_MethodName: playSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 6453942239407374924}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
         m_MethodName: ExitGame
