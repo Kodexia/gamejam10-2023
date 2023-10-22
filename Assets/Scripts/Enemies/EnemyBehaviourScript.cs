@@ -29,10 +29,10 @@ public class EnemyBehaviourScript : MonoBehaviour
     }
     private void Update()
     {
-        if (!hasTarget)
+        //if (!hasTarget)
             targetFlower = FindClosestFlowerWithPriority(3);
-        else
-        {
+        //else
+        //{
             UpdateSpriteDirection();
 
             float distance = Vector3.Distance(transform.position, targetPos);
@@ -43,7 +43,6 @@ public class EnemyBehaviourScript : MonoBehaviour
                     hasTarget = false;
                     isAttacking = true;
                     StartCoroutine(Attack(targetPos - transform.position));
-                    Debug.Log("In range!");
                     // implement the change of target on destroyed flower
                 }
             }
@@ -52,7 +51,7 @@ public class EnemyBehaviourScript : MonoBehaviour
                 this.transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * enemyStats.movementSpeed);
                 isAttacking = false;
             }
-        }
+        //}
     }
     private IEnumerator Attack(Vector3 direction)
     {
@@ -101,7 +100,6 @@ public class EnemyBehaviourScript : MonoBehaviour
     {
         flowersInRange = GetNearbyFlowers();
         List<FlowerScript> nearbyFlowers = new();
-        Debug.Log($"Count: {flowersInRange.Count}");
         if (flowersInRange.Count > 0)
             nearbyFlowers = flowersInRange.Where(flower => flower.flower.Priority == priority).ToList();
         else
@@ -113,6 +111,12 @@ public class EnemyBehaviourScript : MonoBehaviour
         {
             SetTargetPosition(nearbyFlowers[0].flower.flowerObject.transform.position);
             return nearbyFlowers[0];
+        }
+        else if ((nearbyFlowers.Count <= 0) && GameObject.FindGameObjectsWithTag(GameManager.instance.flowerTag).Length > 0)
+        {
+            hasTarget = false;
+            targetPos = mainFlower.transform.position;
+            return null;
         }
         else
         {
@@ -134,6 +138,6 @@ public class EnemyBehaviourScript : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, enemyStats.attackRadius);
+        //Gizmos.DrawSphere(transform.position, enemyStats.attackRadius);
     }
 }
