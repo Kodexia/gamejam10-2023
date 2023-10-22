@@ -6,12 +6,14 @@ using UnityEngine;
 public class ChoosePlant : MonoBehaviour
 {
     AudioSource popUIAudio;
+    [SerializeField]
+    AudioSource shootSeedAudio;
     private MainFlowerScript _script;
     
     void Start()
     {
         _script = GameManager.instance.mainFlower;
-        popUIAudio = this.gameObject.GetComponent<AudioSource>();
+        popUIAudio = this.gameObject.GetComponentInChildren<AudioSource>();
         popUIAudio.Play();
     }
 
@@ -20,6 +22,7 @@ public class ChoosePlant : MonoBehaviour
         Debug.Log("Spawned attack");
         _script.NewBud(GameManager.instance.flowerBudPrefabOffensive);
         Time.timeScale = 1.0f;
+        shootSeedAudio.PlayDelayed(1f);
         gameObject.SetActive(false);
     }
     public void SpawnDefensiveFlower()
@@ -27,6 +30,7 @@ public class ChoosePlant : MonoBehaviour
         Debug.Log("Spawned defensive");
         _script.NewBud(GameManager.instance.flowerBudPrefabDefensive);
         Time.timeScale = 1.0f;
+        shootSeedAudio.PlayDelayed(1f);
         gameObject.SetActive(false);
     }
     public void SpawnEconomicFlower()
@@ -34,6 +38,7 @@ public class ChoosePlant : MonoBehaviour
         Debug.Log("Spawned economic");
         _script.NewBud(GameManager.instance.flowerBudPrefabEconomic);
         Time.timeScale = 1.0f;
+        shootSeedAudio.PlayDelayed(1f);
         gameObject.SetActive(false);
     }
 
