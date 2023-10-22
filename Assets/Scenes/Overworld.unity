@@ -651,6 +651,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 540616816595028561, guid: cb3446ee688ff344ebbb7a5c111b7b4d, type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095499138504733529, guid: cb3446ee688ff344ebbb7a5c111b7b4d, type: 3}
+      propertyPath: <attackDelay>k__BackingField
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3476726678043334889, guid: cb3446ee688ff344ebbb7a5c111b7b4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.75
@@ -691,9 +699,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4638423580920178929, guid: cb3446ee688ff344ebbb7a5c111b7b4d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453003141082799974, guid: cb3446ee688ff344ebbb7a5c111b7b4d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7386011338908269337, guid: cb3446ee688ff344ebbb7a5c111b7b4d, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104201399203823614, guid: cb3446ee688ff344ebbb7a5c111b7b4d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320660226725749421, guid: cb3446ee688ff344ebbb7a5c111b7b4d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -999,6 +1023,7 @@ MonoBehaviour:
   <enemyTag>k__BackingField: Enemy
   <flowerTag>k__BackingField: Flower
   <allyTag>k__BackingField: Ally
+  <mainFlowerTag>k__BackingField: MainFlower
   <flowerBudPrefabOffensive>k__BackingField: {fileID: 3679717070793638722, guid: 77117f563a3680d4a9511ac1b2b8a249, type: 3}
   <flowerBudPrefabDefensive>k__BackingField: {fileID: 3845495867336707814, guid: 06a91ef1a55d35a458bbeebfe29041d9, type: 3}
   <flowerBudPrefabEconomic>k__BackingField: {fileID: 7445205018577276849, guid: 00c280829711db64ba06c200f2fb555e, type: 3}
@@ -1753,7 +1778,7 @@ Transform:
   m_GameObject: {fileID: 6771600039132544343}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.761507, y: 1.8469307, z: -0.10435808}
+  m_LocalPosition: {x: 1.71, y: 2.17, z: -0.10435808}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2098,10 +2123,6 @@ MonoBehaviour:
   waterRadius: 3
   maxWaterLevel: 100
   type: 0
-  chooseFlowerCanvas: {fileID: 0}
-  flowerBudPrefabOffensive: {fileID: 3679717070793638722, guid: 77117f563a3680d4a9511ac1b2b8a249, type: 3}
-  flowerBudPrefabDefensive: {fileID: 3845495867336707814, guid: 06a91ef1a55d35a458bbeebfe29041d9, type: 3}
-  flowerBudPrefabEconomic: {fileID: 7445205018577276849, guid: 00c280829711db64ba06c200f2fb555e, type: 3}
 --- !u!331 &3449822195842384511
 SpriteMask:
   m_ObjectHideFlags: 0
@@ -2838,7 +2859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &6780652710772166386 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2332656685811849989, guid: 1e7f39b865cd54f4b94412cea2b44612, type: 3}

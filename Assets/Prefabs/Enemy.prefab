@@ -140,7 +140,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.1574273, y: -0.39751792}
+  m_Offset: {x: 2.5237083, y: -0.39751792}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -151,7 +151,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.7258348, y: 5.0206084}
+  m_Size: {x: 4.993273, y: 5.0206084}
   m_EdgeRadius: 0
 --- !u!114 &6785115365655191600
 MonoBehaviour:
@@ -306,7 +306,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2271533, y: -3.0552084}
+  m_Offset: {x: -0.2271533, y: -2.5149894}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -317,7 +317,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.3159075, y: 2.8853707}
+  m_Size: {x: 5.3159075, y: 3.965809}
   m_EdgeRadius: 0
 --- !u!114 &5531692616100954999
 MonoBehaviour:
@@ -396,7 +396,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -4.1455426, y: -0.2498684}
+  m_Offset: {x: -3.1689925, y: -0.2498684}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -407,7 +407,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.3851073, y: 4.8161707}
+  m_Size: {x: 5.3382063, y: 4.8161707}
   m_EdgeRadius: 0
 --- !u!114 &5985969126914190361
 MonoBehaviour:
@@ -486,7 +486,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12493372, y: 2.5327563}
+  m_Offset: {x: -0.12493372, y: 1.9094261}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -497,7 +497,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.2023306, y: 2.794509}
+  m_Size: {x: 5.2023306, y: 4.041169}
   m_EdgeRadius: 0
 --- !u!114 &1428116726822451741
 MonoBehaviour:
