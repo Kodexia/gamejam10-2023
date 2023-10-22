@@ -24,11 +24,18 @@ public class EnemyStatsScript : MonoBehaviour
     {
         barScript.UpdateHealthbar(currentHp, maxHp);
     }
-    public void GetHit(float damage)
+    public bool GetHit(float damage) // returns bool - if the last hit killed the enemy
     {
         currentHp -= damage;
         if (currentHp <= 0)
+        {
             Die();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     private void Die()
     {

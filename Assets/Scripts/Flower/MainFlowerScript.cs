@@ -19,6 +19,10 @@ public class MainFlowerScript : MonoBehaviour
     
     public FlowerMain flower;
     private float currentWaterLevel = 0f;
+    AudioSource deathMainAudio;
+    [SerializeField]
+    AudioSource addWaterFromPlayerSound;
+    
 
 
     void Start()
@@ -26,6 +30,7 @@ public class MainFlowerScript : MonoBehaviour
         flower = new FlowerMain(gameObject, radius, priority: 1);
         _grassGrowth = GetComponentInChildren<GrassGrowth>();
         _barScript = GetComponent<HealthBarScript>();
+        deathMainAudio = this.gameObject.GetComponent<AudioSource>();
 
         _chooseFlowerCanvas = GameManager.instance.chooseFlowerCanvas;
         _chooseFlowerCanvas.SetActive(false);
@@ -38,7 +43,7 @@ public class MainFlowerScript : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-            flower.TakeDamage(dmg);
+        if (flower.TakeDamage(dmg)) deathMainAudio.Play();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -55,7 +60,8 @@ public class MainFlowerScript : MonoBehaviour
     {
         currentWaterLevel += water;
         if (currentWaterLevel >= maxWaterLevel)
-        {
+        {   
+            
             _chooseFlowerCanvas.SetActive(true); 
             Time.timeScale = 0;
         }

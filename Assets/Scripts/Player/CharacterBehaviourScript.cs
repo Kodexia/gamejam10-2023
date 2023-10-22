@@ -13,6 +13,8 @@ public class CharacterBehaviourScript : MonoBehaviour
     MainFlowerScript mainFlower;
     EnemyBehaviourScript targetEnemy;
     Animator animator;
+    [SerializeField]
+    AudioSource attackAudio;
 
     void Start()
     {
@@ -20,6 +22,7 @@ public class CharacterBehaviourScript : MonoBehaviour
         stats = GetComponent<CharacterStatsScript>();
         mainFlower = GameManager.instance.mainFlower;
         animator = GetComponent<Animator>();
+        
 
         characterMovement.onEnemyTarget += (EnemyBehaviourScript en) => { TargetEnemy(en); };
 
@@ -35,7 +38,11 @@ public class CharacterBehaviourScript : MonoBehaviour
             characterMovement.StopMovement();
             animator.SetFloat("Horizontal", -dir.x);
             animator.SetFloat("Vertical", -dir.y);
+            if (attackAudio != null)
+                attackAudio.time = 0.15f;
+                attackAudio.Play();
             animator.SetTrigger("Attack");
+
         }
     }
     void TargetEnemy(EnemyBehaviourScript en)

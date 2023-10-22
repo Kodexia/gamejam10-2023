@@ -1,26 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class OnClickPlaySFX : MonoBehaviour
 {
-    public static AudioSource instance;
-    [SerializeField]
-    AudioSource SFX;
+    public static OnClickPlaySFX instance;
 
     void Awake()
     {
-        if (instance != null)
-            Destroy(gameObject);
-        else
+        if(this.gameObject.GetComponent<AudioSource>() != null)
         {
-            instance = SFX;
-            DontDestroyOnLoad(this.gameObject);
+            if (instance != null)
+                Destroy(gameObject);
+            else
+            {
+                instance = this;
+                DontDestroyOnLoad(this.gameObject);
+            }
         }
     }
     public void playSFX()
     {
-        SFX.Play();
+        Debug.Log("played sound");
+        GameObject.Find("guiButtons").GetComponent<AudioSource>().Play();
     }
    
 }

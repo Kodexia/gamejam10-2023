@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class OffensiveFlower : FlowerScript
 {
+    [SerializeField]
+    private GameObject alliedPrefab;
+    
     protected override void FlowerStart()
     {
         StartCoroutine(ConvertEnemiesInRadius(5));
@@ -21,29 +23,36 @@ public class OffensiveFlower : FlowerScript
         {
             yield return new WaitForSeconds(delay);
             
-            Collider[] hitColliders = new Collider[50]; // Random jsem dal velikost, pokud by nestačilo stačí to zvětšit
-
-            Vector3 flowerPosition = flower.flowerObject.transform.position;
-            float radius = flower.Radius;
-
-            int numColliders = Physics.OverlapSphereNonAlloc(flowerPosition, radius, hitColliders);
-
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             List<GameObject> enemiesInRadius = new List<GameObject>();
-
-            for (int i = 0; i < numColliders; i++)
+            foreach (GameObject enemy in enemies)
             {
-                if (hitColliders[i].CompareTag("Enemy"))
+                if (Vector3.Distance(enemy.transform.position, flower.flowerObject.transform.position) <= flower.Radius)
                 {
-                    enemiesInRadius.Add(hitColliders[i].gameObject);
+                    enemiesInRadius.Add(enemy);
                 }
             }
         
-            List<GameObject> nearestEnemies = enemiesInRadius
-                .OrderBy(enemy => Vector3.Distance(enemy.transform.position, flowerPosition))
-                .Take(numberOfEnemies)
-                .ToList();
-        
-            // ToDo: Convert first numberOfEnemies enemies to friendly
+            ShuffleList(enemiesInRadius);
+
+            int enemiesToConvert = Mathf.Min(numberOfEnemies, enemiesInRadius.Count);
+            for (int i = 0; i < enemiesToConvert; i++)
+            {
+                GameObject enemyToConvert = enemiesInRadius[i];
+                GameObject newAlly = Instantiate(alliedPrefab, enemyToConvert.transform.position, Quaternion.identity);
+                Destroy(enemyToConvert);
+            }
+        }
+    }
+    
+    void ShuffleList<T>(List<T> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = Random.Range(0, n + 1);
+            (list[k], list[n]) = (list[n], list[k]);
         }
     }
 }

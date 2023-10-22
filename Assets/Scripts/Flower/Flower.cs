@@ -21,7 +21,7 @@ public interface IFlower
     float Radius { get; set; }
     public float Priority { get; set; }
 
-    void TakeDamage(float amount);
+    bool TakeDamage(float amount);
     void increaseWaterLevel(float amount);
     void decreaseWaterLevel(float amount);
     GameObject flowerObject { get; }
@@ -54,14 +54,17 @@ public class Flower : IFlower
         MaxHealth = maxHealth;
     }
 
-    public void TakeDamage(float amount)
+    public bool TakeDamage(float amount)
     {
         this.Health -= amount;
 
         if (this.Health <= 0)
         {
             DestroyFlower();
+            return true;
         }
+        else
+            return false;
         
     }
 
