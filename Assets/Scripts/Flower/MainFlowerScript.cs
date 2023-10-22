@@ -44,7 +44,12 @@ public class MainFlowerScript : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-        if (flower.TakeDamage(dmg)) deathMainAudio.Play();
+        if (flower.TakeDamage(dmg))
+        {
+            deathMainAudio.Play();
+
+            GameManager.instance.EndGame(false );
+        }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
