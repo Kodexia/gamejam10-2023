@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 537755296939191603}
   - component: {fileID: 6941829309654340616}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Husk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7518010233228327087}
   - component: {fileID: 3317542377686919747}
   m_Layer: 0
-  m_Name: Square
+  m_Name: WaterLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,8 +110,8 @@ Transform:
   m_GameObject: {fileID: 8753241687808418905}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0334, y: -0.0863, z: 0}
-  m_LocalScale: {x: 7.952613, y: 2.2527, z: 1}
+  m_LocalPosition: {x: -0.85, y: -0.05, z: 0}
+  m_LocalScale: {x: 6, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6859617948900392429}
@@ -194,8 +194,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.32, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6771467993114439300}
   - {fileID: 537755296939191603}
