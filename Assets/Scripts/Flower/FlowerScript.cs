@@ -31,7 +31,10 @@ public abstract class FlowerScript : MonoBehaviour
         FlowerUpdate();
         barScript.UpdateHealthbar(flower.Health, maxHealth);
     }
-
+    public void TakeDamage(float dmg)
+    {
+        flower.TakeDamage(dmg);
+    }
     protected abstract void FlowerStart();
     protected abstract void FlowerUpdate();
 }

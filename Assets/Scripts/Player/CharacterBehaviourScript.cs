@@ -13,6 +13,7 @@ public class CharacterBehaviourScript : MonoBehaviour
     MainFlowerScript mainFlower;
     EnemyBehaviourScript targetEnemy;
     Animator animator;
+
     void Start()
     {
         characterMovement = GetComponent<CharacterMovementScript>();
