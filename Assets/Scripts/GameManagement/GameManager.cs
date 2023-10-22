@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -47,6 +48,29 @@ public class GameManager : MonoBehaviour
 
     [field: SerializeField] public GameObject menuCanvas { get; private set; }
     [field: SerializeField] public GameObject chooseFlowerCanvas { get; private set; }
+    public int numOfFlowers = 0;
+
+    public void EndGame(bool win)
+    {
+        if (win)
+        {
+            SceneManager.LoadScene("WinScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("DeathScene");
+        }
+    }
+
+    public void IncreaseFlowerCount()
+    {
+        numOfFlowers++;
+
+        if (numOfFlowers >= 16)
+        {
+            EndGame(true);
+        }
+    }
 
 
 }

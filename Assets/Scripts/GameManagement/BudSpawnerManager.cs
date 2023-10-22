@@ -86,7 +86,9 @@ public class BudSpawnerManager : MonoBehaviour
         
         BudMoveInArc budMoveInArc = script.flower.flowerObject.GetComponent<BudMoveInArc>();
         budMoveInArc.ShootOutBud(startPosition, endPosition, seedPrefab, flowerBudPrefab);
-        
+
+        GameManager.instance.IncreaseFlowerCount();
+
         spawnedBuds.Add(endPosition);
     }
 
@@ -110,15 +112,10 @@ public class BudSpawnerManager : MonoBehaviour
                 safetyNet = 0;
 
                 numOfLoops++;
-                
                 if(numOfLoops >= maxNubOfLoops)
                 {
                     Debug.Log("END GAME");
-
-                    // GameManager.instance.EndGame(true);
                 }
-
-
             }
 
             currentAngle += goldenAngle;
@@ -161,7 +158,7 @@ public class BudSpawnerManager : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
-            Debug.Log(collider.name);
+            //Debug.Log(collider.name);
             if (collider.CompareTag(pondTag))
             {
                 Debug.Log("found pond!");
