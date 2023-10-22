@@ -15,6 +15,8 @@ public abstract class FlowerScript : MonoBehaviour
     public Flower flower;
     private HealthBarScript barScript;
     AudioSource deathAudio;
+    [SerializeField]
+    AudioSource growAudio;
 
     // Start is called before the first frame update
     void Awake()
@@ -24,6 +26,7 @@ public abstract class FlowerScript : MonoBehaviour
         grassGrowth = GetComponentInChildren<GrassGrowth>();
         FlowerStart();
         deathAudio = this.gameObject.GetComponent<AudioSource>();
+        growAudio.Play();
     }
 
     // Update is called once per frame

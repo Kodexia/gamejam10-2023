@@ -19,6 +19,9 @@ public class EnemyBehaviourScript : MonoBehaviour
     SpriteRenderer renderer;
     Animator animator;
     bool isAttacking = false;
+    [SerializeField]
+    AudioSource attackAudio;
+
     private void Start()
     {
         enemyStats = GetComponent<EnemyStatsScript>();
@@ -61,6 +64,7 @@ public class EnemyBehaviourScript : MonoBehaviour
 
             animator.SetFloat("Horizontal", dir.x);
             animator.SetFloat("Vertical", dir.y);
+            attackAudio.Play();
             animator.SetTrigger("Attack");
 
             yield return new WaitForSeconds(enemyStats.attackDelay);
