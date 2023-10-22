@@ -479,6 +479,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   <enemyTag>k__BackingField: Enemy
+  waterBar: {fileID: 0}
 --- !u!114 &6171441933707167564
 MonoBehaviour:
   m_ObjectHideFlags: 0
