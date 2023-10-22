@@ -7,6 +7,8 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyStatsScript))]
 public class EnemyBehaviourScript : MonoBehaviour
 {
+    [SerializeField] public Sprite[] directionalSprites; // Assuming you have 8 sprites in the order: N, NE, E, SE, S, SW, W, NW (9th is stationary)
+
     EnemyStatsScript enemyStats;
     List<FlowerScript> flowersInRange = new List<FlowerScript>();
     FlowerScript targetFlower = null;
@@ -14,11 +16,16 @@ public class EnemyBehaviourScript : MonoBehaviour
     MainFlowerScript mainFlower;
     Vector3 targetPos = Vector3.zero;
     bool hasTarget = false; //{ get { return (targetPos != null); } } NOT WORKING
+    SpriteRenderer renderer;
+    Animator animator;
+    bool isAttacking = false;
     private void Start()
     {
         enemyStats = GetComponent<EnemyStatsScript>();
         flowerTag = GameManager.instance.flowerTag;
         mainFlower = GameManager.instance.mainFlower;
+        renderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -26,16 +33,64 @@ public class EnemyBehaviourScript : MonoBehaviour
             targetFlower = FindClosestFlowerWithPriority(3);
         else
         {
-            this.transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * enemyStats.movementSpeed);
+            UpdateSpriteDirection();
 
             float distance = Vector3.Distance(transform.position, targetPos);
             if (distance <= 0.3f)
             {
-                hasTarget = false;
-                Debug.Log("In range!");
-                // implement the change of target on destroyed flower
+                if (!isAttacking)
+                {
+                    hasTarget = false;
+                    isAttacking = true;
+                    StartCoroutine(Attack(targetPos - transform.position));
+                    Debug.Log("In range!");
+                    // implement the change of target on destroyed flower
+                }
+            }
+            else
+            {
+                this.transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * enemyStats.movementSpeed);
+                isAttacking = false;
             }
         }
+    }
+    private IEnumerator Attack(Vector3 direction)
+    {
+        while(isAttacking)
+        {
+            Vector3 dir = Vector3.Normalize(direction);
+
+            animator.SetFloat("Horizontal", dir.x);
+            animator.SetFloat("Vertical", dir.y);
+            animator.SetTrigger("Attack");
+
+            yield return new WaitForSeconds(enemyStats.attackDelay);
+        }
+    }
+    private void UpdateSpriteDirection()
+    {
+        Vector3 direction = targetPos - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        int spriteIndex = 0;
+        if (angle < -157.5f && angle >= 157.5f)
+            spriteIndex = 0; // LEFT
+        else if (angle < 157.5f && angle >= 112.5f)
+            spriteIndex = 1; // TOP-LEFT
+        else if (angle < 112.5f && angle >= 67.5f)
+            spriteIndex = 2; // TOP
+        else if (angle < 67.5f && angle >= 22.5f)
+            spriteIndex = 3; // TOP-RIGHT
+        else if (angle < 22.5f && angle >= -22.5)
+            spriteIndex = 4; // RIGHT
+        else if (angle < -22.5f && angle >= -67.5f)
+            spriteIndex = 5; // BOTTOM-RIGHT
+        else if (angle < -67.5f && angle >= -112.5f)
+            spriteIndex = 6; // bottom
+        else if (angle < -112.5f && angle >= -157.5f)
+            spriteIndex = 7; // bottom-left
+
+        renderer.sprite = directionalSprites[spriteIndex];
     }
     private void SetTargetPosition(Vector3 pos)
     {

@@ -11,42 +11,34 @@ public class MainFlowerScript : MonoBehaviour
     [SerializeField] private float waterRadius = 3f;
     [field: SerializeField] private float maxWaterLevel = 100f;
     [SerializeField] FlowerType type;
-    GameObject flowerObject;
 
-    [SerializeField] public GameObject chooseFlowerCanvas;
-    [SerializeField] public GameObject flowerBudPrefabOffensive;
-    [SerializeField] public GameObject flowerBudPrefabDefensive;
-    [SerializeField] public GameObject flowerBudPrefabEconomic;
+    private GameObject _chooseFlowerCanvas;
 
-    GrassGrowth grassGrowth;
+    private GrassGrowth _grassGrowth;
+    private HealthBarScript _barScript;
+    
     public FlowerMain flower;
     private float currentWaterLevel = 0f;
-    HealthBarScript barScript;
 
 
     void Start()
     {
         flower = new FlowerMain(gameObject, radius, priority: 1);
-        grassGrowth = GetComponentInChildren<GrassGrowth>();
-        barScript = GetComponent<HealthBarScript>();
-        chooseFlowerCanvas.SetActive(false);
+        _grassGrowth = GetComponentInChildren<GrassGrowth>();
+        _barScript = GetComponent<HealthBarScript>();
 
+        _chooseFlowerCanvas = GameManager.instance.chooseFlowerCanvas;
+        _chooseFlowerCanvas.SetActive(false);
     }
 
     void Update()
     {
-        //BudSpawnerManager.instance.SpawnNewFlowerBud(flowerBudPrefabDefensive);
-        testDmg();
-        barScript.UpdateHealthbar(flower.Health, flower.MaxHealth);
+        _barScript.UpdateHealthbar(flower.Health, flower.MaxHealth);
     }
 
-    void testDmg()
+    public void TakeDamage(float dmg)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            flower.TakeDamage(10);
-            Debug.Log("Current health of flower: " + flower.Health);
-        }
+            flower.TakeDamage(dmg);
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -64,7 +56,7 @@ public class MainFlowerScript : MonoBehaviour
         currentWaterLevel += water;
         if (currentWaterLevel >= maxWaterLevel)
         {
-            chooseFlowerCanvas.SetActive(true); 
+            _chooseFlowerCanvas.SetActive(true); 
             Time.timeScale = 0;
         }
 
