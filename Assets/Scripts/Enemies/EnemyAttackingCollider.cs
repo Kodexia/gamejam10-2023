@@ -16,5 +16,6 @@ public class EnemyAttackCollider : MonoBehaviour
             collision.collider.GetComponent<FlowerScript>().TakeDamage(stats.attackDamage);
         else if (collision.collider.CompareTag(GameManager.instance.mainFlowerTag))
             collision.collider.GetComponent<MainFlowerScript>().TakeDamage(stats.attackDamage);
+        
     }
 }
