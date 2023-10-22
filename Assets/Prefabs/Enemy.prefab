@@ -517,8 +517,8 @@ MonoBehaviour:
   <attackRadius>k__BackingField: 20
   <attackRange>k__BackingField: 1
   <attackDamage>k__BackingField: 1
-  <attackDelay>k__BackingField: 1.5
-  <maxHp>k__BackingField: 15
+  <attackDelay>k__BackingField: 1
+  <maxHp>k__BackingField: 20
 --- !u!114 &8077865221177031836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,7 +540,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 83f08374b506b5f4a9422d0c9347961f, type: 3}
   - {fileID: 21300000, guid: 9d36688d908949642bb40a7cbac3f656, type: 3}
   - {fileID: 21300000, guid: 6cdc2a4ebceb5134eaf105908d2268d9, type: 3}
-  - {fileID: 21300000, guid: 98ef9d6dac13b5540abcfeb8913a3a9e, type: 3}
 --- !u!114 &5343903689971154672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,7 +623,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e642f68244144f64fb2891ab0fe4277a, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0

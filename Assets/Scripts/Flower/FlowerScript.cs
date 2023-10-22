@@ -40,6 +40,7 @@ public abstract class FlowerScript : MonoBehaviour
         if (flower.TakeDamage(dmg))
         {
             deathAudio.Play();
+            Destroy(gameObject);
         }
         
     }

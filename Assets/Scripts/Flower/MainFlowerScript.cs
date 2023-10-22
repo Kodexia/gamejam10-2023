@@ -27,7 +27,7 @@ public class MainFlowerScript : MonoBehaviour
 
     void Start()
     {
-        flower = new FlowerMain(gameObject, radius, priority: 1);
+        flower = new FlowerMain(gameObject, radius, hp: 100, priority: 1);
         _grassGrowth = GetComponentInChildren<GrassGrowth>();
         _barScript = GetComponent<HealthBarScript>();
         deathMainAudio = this.gameObject.GetComponent<AudioSource>();
@@ -39,6 +39,7 @@ public class MainFlowerScript : MonoBehaviour
     void Update()
     {
         _barScript.UpdateHealthbar(flower.Health, flower.MaxHealth);
+        Debug.Log($"Main flower: {flower.Health}HP");
     }
 
     public void TakeDamage(float dmg)
@@ -49,7 +50,7 @@ public class MainFlowerScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag(GameManager.instance.playerTag))
         {
-            //BudSpawnerManager.instance.SpawnNewFlowerBud(flowerBudPrefabDefensive);
+            BudSpawnerManager.instance.SpawnNewFlowerBud(GameManager.instance.flowerBudPrefabDefensive);
             //EnemySpawnerManager.instance.ChangeSpawnRate(0.001f);
 
             //Debug.Log("Player has collided with the flower!");
