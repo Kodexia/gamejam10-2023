@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class ChoosePlant : MonoBehaviour
 {
+    AudioSource popUIAudio;
     private MainFlowerScript _script;
     
     void Start()
     {
         _script = GameManager.instance.mainFlower;
+        popUIAudio = this.gameObject.GetComponent<AudioSource>();
+        popUIAudio.Play();
     }
 
     public void SpawnAttackFlower()

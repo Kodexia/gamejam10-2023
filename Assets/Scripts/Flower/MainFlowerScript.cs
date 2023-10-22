@@ -22,6 +22,7 @@ public class MainFlowerScript : MonoBehaviour
     AudioSource deathMainAudio;
     [SerializeField]
     AudioSource addWaterFromPlayerSound;
+    
 
 
     void Start()

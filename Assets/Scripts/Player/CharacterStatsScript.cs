@@ -26,6 +26,7 @@ public class CharacterStatsScript : MonoBehaviour
     [SerializeField] GameObject waterBar;
     [SerializeField] GameObject oxygenBar;
     [SerializeField] Gradient oxygenBarGradient;
+    [SerializeField] AudioSource waterDrainAudio;
 
     private void Start()
     {
@@ -59,7 +60,9 @@ public class CharacterStatsScript : MonoBehaviour
     public void AddWater(float water)
     {
         // If can add water -> adds water and clamps it just in case
+        if (!CanAddWater(water)) { waterDrainAudio.Stop(); }
         if (CanAddWater(water))
+            if (waterDrainAudio.isPlaying == false) waterDrainAudio.Play();
             currentWaterLevel = Mathf.Clamp(currentWaterLevel + water, 0, maxWaterLevel);
         
         updateWaterBar();
