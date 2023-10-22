@@ -24,6 +24,8 @@ public class CharacterStatsScript : MonoBehaviour
 
     [Header("add WaterLeft object in WaterBar prefab")]
     [SerializeField] GameObject waterBar;
+    [SerializeField] GameObject oxygenBar;
+    [SerializeField] Gradient oxygenBarGradient;
 
     private void Start()
     {
@@ -36,7 +38,7 @@ public class CharacterStatsScript : MonoBehaviour
     {
         // Reduce HP and check, if player hasn't die
         currentHealth -= hitDamage;
-
+        UpdateOxygenBar();
         if (currentHealth <= 0)
             Die();
     }
@@ -51,6 +53,7 @@ public class CharacterStatsScript : MonoBehaviour
     {
         // Adds some HP, if player's over the maximum ammount of HP clamp the HP
         currentHealth = Mathf.Clamp(currentHealth + heal, 0, maxHealth);
+        UpdateOxygenBar();
     }
 
     public void AddWater(float water)
@@ -78,5 +81,12 @@ public class CharacterStatsScript : MonoBehaviour
     public void updateWaterBar()
     {
         waterBar.GetComponent<SpriteRenderer>().size = new Vector2(currentWaterLevel/maxWaterLevel*12,2);
+    }
+    public void UpdateOxygenBar()
+    {
+        float o2 = currentHealth / maxHealth;
+        SpriteRenderer r = oxygenBar.GetComponent<SpriteRenderer>();
+        r.color = oxygenBarGradient.Evaluate(o2);
+        r.size = new Vector2(o2*12,2);
     }
 }
