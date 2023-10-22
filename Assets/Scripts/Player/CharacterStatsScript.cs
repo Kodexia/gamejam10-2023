@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CharacterStatsScript : MonoBehaviour
 {
@@ -21,10 +22,15 @@ public class CharacterStatsScript : MonoBehaviour
     [field: SerializeField] public LayerMask groundMask { get; private set; }
     [field: SerializeField] public string enemyTag { get; private set; } = "Enemy";
 
+    [Header("add WaterLeft object in WaterBar prefab")]
+    [SerializeField] GameObject waterBar;
+
     private void Start()
     {
         // Sets starting HP
         currentHealth = maxHealth;
+        updateWaterBar();
+
     }
     public void Hit(float hitDamage)
     {
@@ -54,6 +60,7 @@ public class CharacterStatsScript : MonoBehaviour
         Debug.Log("Current water level: " + currentWaterLevel + ", Water to add: " + water);
         if (CanAddWater(water))
             currentWaterLevel = Mathf.Clamp(currentWaterLevel + water, 0, maxWaterLevel);
+        updateWaterBar();
         Debug.Log("Current water level after adding: " + currentWaterLevel);
     }
 
@@ -65,10 +72,15 @@ public class CharacterStatsScript : MonoBehaviour
         if (currentWaterLevel >= water)
             currentWaterLevel -= water;
         Debug.Log("Current water level after draining: " + currentWaterLevel);
+        updateWaterBar();
     }
 
     public bool CanAddWater(float water)
     {
         return ((maxWaterLevel - currentWaterLevel) >= water);
+    }
+    public void updateWaterBar()
+    {
+        waterBar.GetComponent<SpriteRenderer>().size = new Vector2(currentWaterLevel/maxWaterLevel*12,2);
     }
 }

@@ -45,10 +45,10 @@ public class CharacterMovementScript : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, movePosition, Time.deltaTime * stats.movementSpeed);
             UpdateSpriteDirection();
         }
-        else if(!ShouldMove())
-        { 
-            spriteRenderer.sprite = directionalSprites[8];
-        }
+        //else if(!ShouldMove())
+        //{ 
+        //    spriteRenderer.sprite = directionalSprites[8];
+        //}
         //else
         //spriteRenderer.sprite = directionalSprites[8];
     }
