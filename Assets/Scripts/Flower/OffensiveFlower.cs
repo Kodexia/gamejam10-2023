@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class OffensiveFlower : FlowerScript
@@ -34,11 +33,26 @@ public class OffensiveFlower : FlowerScript
                 }
             }
         
-            foreach (GameObject nearestEnemy in enemiesInRadius)
+            ShuffleList(enemiesInRadius);
+
+            int enemiesToConvert = Mathf.Min(numberOfEnemies, enemiesInRadius.Count);
+            for (int i = 0; i < enemiesToConvert; i++)
             {
-                GameObject newAlly = Instantiate(alliedPrefab, nearestEnemy.transform.position, Quaternion.identity);
-                Destroy(nearestEnemy);
+                GameObject enemyToConvert = enemiesInRadius[i];
+                GameObject newAlly = Instantiate(alliedPrefab, enemyToConvert.transform.position, Quaternion.identity);
+                Destroy(enemyToConvert);
             }
+        }
+    }
+    
+    void ShuffleList<T>(List<T> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = Random.Range(0, n + 1);
+            (list[k], list[n]) = (list[n], list[k]);
         }
     }
 }
