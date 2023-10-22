@@ -58,6 +58,16 @@ public class BudSpawnerManager : MonoBehaviour
         }
 
         middleRadius = (minRadius + maxRadius) / 2f;
+
+
+        // add ponds to list of spawned buds
+
+        List<GameObject> ponds = this.GetNearbyPonds();
+        Debug.Log("ponds: " +  ponds.Count);
+        foreach (GameObject pond in ponds)
+        {
+            spawnedBuds.Add(pond.transform.position);
+        }
     }
 
 
@@ -139,5 +149,28 @@ public class BudSpawnerManager : MonoBehaviour
             }
             return true;
         }
+    }
+
+    private List<GameObject> GetNearbyPonds()
+    {
+        string pondTag = GameManager.instance.pondTag;
+        List<GameObject> ponds = new();
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1000f);
+
+
+        foreach (Collider2D collider in colliders)
+        {
+            Debug.Log(collider.name);
+            if (collider.CompareTag(pondTag))
+            {
+                Debug.Log("found pond!");
+
+                ponds.Add(collider.gameObject);
+            }
+
+        }
+
+        return ponds;
     }
 }

@@ -23,7 +23,7 @@ public class HealthBarScript : MonoBehaviour
     public void ShowHealthbar()
     {
         float distanceFromPlayer = Vector3.Distance(transform.position, GameManager.instance.playerBehaviour.transform.position);
-        if (distanceFromPlayer < 3f)
+        if (distanceFromPlayer < 5f)
         {
             if (!canvas.isActiveAndEnabled)
                 canvas.enabled = true;

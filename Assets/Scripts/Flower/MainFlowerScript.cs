@@ -33,17 +33,12 @@ public class MainFlowerScript : MonoBehaviour
 
     void Update()
     {
-        testDmg();
         _barScript.UpdateHealthbar(flower.Health, flower.MaxHealth);
     }
 
-    void testDmg()
+    public void TakeDamage(float dmg)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            flower.TakeDamage(10);
-            Debug.Log("Current health of flower: " + flower.Health);
-        }
+            flower.TakeDamage(dmg);
     }
     void OnTriggerEnter2D(Collider2D other)
     {

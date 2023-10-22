@@ -9,7 +9,6 @@ public class EconomicalFlower : FlowerScript
     private float boostSpeed = 2f;
 
     private WaterScript _selectedPond;
-    private bool _isInitialized = false;
 
     protected override void FlowerStart()
     {
@@ -54,8 +53,7 @@ public class EconomicalFlower : FlowerScript
             Debug.LogException(new Exception("No eligible pond found!"));
             return;
         }
-
-        _isInitialized = true;
+        
         _selectedPond = closestDistance.GetComponent<WaterScript>();
         _selectedPond.EcoFlowerBoost(boostSpeed);
     }
