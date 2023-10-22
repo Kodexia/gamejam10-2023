@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 7016850116142766680}
   - component: {fileID: 7188377616202469273}
   - component: {fileID: 1461260636854534661}
+  - component: {fileID: 6995065718348756663}
   m_Layer: 5
   m_Name: InGameMenuCanvas
   m_TagString: Untagged
@@ -191,6 +192,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56291e7b6e81c564b96ce0b3ce0af16b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6995065718348756663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2377753187112702197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a0b8e1a44e57c94fae9fcdd70c3d47a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2721735952195180038
@@ -485,7 +498,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2020524896686259807, guid: 01af979e26825ae488874b53ce752519, type: 3}
+      - m_Target: {fileID: 6995065718348756663}
         m_TargetAssemblyTypeName: OnClickPlaySFX, Assembly-CSharp
         m_MethodName: playSFX
         m_Mode: 1
@@ -619,9 +632,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1461260636854534661}
-        m_TargetAssemblyTypeName: SceneLoading, Assembly-CSharp
-        m_MethodName: LoadMenuScene
+      - m_Target: {fileID: 6995065718348756663}
+        m_TargetAssemblyTypeName: OnClickPlaySFX, Assembly-CSharp
+        m_MethodName: playSFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -631,9 +644,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: OnClickPlaySFX, Assembly-CSharp
-        m_MethodName: playSFX
+      - m_Target: {fileID: 1461260636854534661}
+        m_TargetAssemblyTypeName: SceneLoading, Assembly-CSharp
+        m_MethodName: LoadMenuScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
