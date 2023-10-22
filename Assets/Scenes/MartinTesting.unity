@@ -1123,7 +1123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 7386011338908269337, guid: cb3446ee688ff344ebbb7a5c111b7b4d, type: 3}
-  initialDelay: 60
+  initialDelay: 20
   spawnRate: 30
   mapSize: {x: 60, y: 60}
 --- !u!4 &1922767396

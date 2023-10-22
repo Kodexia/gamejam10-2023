@@ -29,10 +29,10 @@ public class EnemyBehaviourScript : MonoBehaviour
     }
     private void Update()
     {
-        if (!hasTarget)
+        //if (!hasTarget)
             targetFlower = FindClosestFlowerWithPriority(3);
-        else
-        {
+        //else
+        //{
             UpdateSpriteDirection();
 
             float distance = Vector3.Distance(transform.position, targetPos);
@@ -52,7 +52,7 @@ public class EnemyBehaviourScript : MonoBehaviour
                 this.transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * enemyStats.movementSpeed);
                 isAttacking = false;
             }
-        }
+        //}
     }
     private IEnumerator Attack(Vector3 direction)
     {
@@ -107,16 +107,17 @@ public class EnemyBehaviourScript : MonoBehaviour
         else
             if (priority > 0)
             FindClosestFlowerWithPriority(priority - 1);
-        Debug.Log(GameObject.FindGameObjectsWithTag(GameManager.instance.flowerTag).Length);
+
         nearbyFlowers = nearbyFlowers.OrderBy(flower => Vector3.Distance(transform.position, flower.flower.flowerObject.transform.position)).ToList();
         if (nearbyFlowers.Count > 0)
         {
             SetTargetPosition(nearbyFlowers[0].flower.flowerObject.transform.position);
             return nearbyFlowers[0];
         }
-        else if ((nearbyFlowers.Count > 0) && GameObject.FindGameObjectsWithTag(GameManager.instance.flowerTag).Length > 0)
+        else if ((nearbyFlowers.Count <= 0) && GameObject.FindGameObjectsWithTag(GameManager.instance.flowerTag).Length > 0)
         {
             hasTarget = false;
+            targetPos = mainFlower.transform.position;
             return null;
         }
         else
@@ -131,6 +132,7 @@ public class EnemyBehaviourScript : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, enemyStats.attackRadius);
         foreach (Collider2D collider in colliders)
         {
+            Debug.Log(collider.gameObject.name);
             if (collider.CompareTag(flowerTag))
                 nearbyFlowers.Add(collider.gameObject.GetComponent<FlowerScript>());
         }
