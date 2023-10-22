@@ -114,6 +114,11 @@ public class EnemyBehaviourScript : MonoBehaviour
             SetTargetPosition(nearbyFlowers[0].flower.flowerObject.transform.position);
             return nearbyFlowers[0];
         }
+        else if ((nearbyFlowers.Count > 0) && GameObject.FindGameObjectsWithTag(GameManager.instance.flowerTag).Length > 0)
+        {
+            hasTarget = false;
+            return null;
+        }
         else
         {
             SetTargetPosition(mainFlower.transform.position);
