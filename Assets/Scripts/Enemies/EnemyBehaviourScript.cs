@@ -107,7 +107,7 @@ public class EnemyBehaviourScript : MonoBehaviour
         else
             if (priority > 0)
             FindClosestFlowerWithPriority(priority - 1);
-
+        Debug.Log(GameObject.FindGameObjectsWithTag(GameManager.instance.flowerTag).Length);
         nearbyFlowers = nearbyFlowers.OrderBy(flower => Vector3.Distance(transform.position, flower.flower.flowerObject.transform.position)).ToList();
         if (nearbyFlowers.Count > 0)
         {
