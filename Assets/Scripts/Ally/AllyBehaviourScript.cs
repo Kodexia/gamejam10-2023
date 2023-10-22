@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using UnityEditor.Experimental.GraphView;
 
 [RequireComponent(typeof(EnemyStatsScript))]
 public class AllyBehaviourScript : MonoBehaviour
@@ -75,6 +76,9 @@ public class AllyBehaviourScript : MonoBehaviour
 
             yield return new WaitForSeconds(enemyStats.attackDelay);
         }
+
+        animator.SetFloat("Horizontal", 0);
+        animator.SetFloat("Vertical", 0);
     }
     public void Killed()
     {

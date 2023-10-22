@@ -15,33 +15,39 @@ public class CharacterBehaviourScript : MonoBehaviour
     Animator animator;
     [SerializeField]
     AudioSource attackAudio;
-
+    private float attackDelay = 1f;
+    float cooldown = 1.5f;
     void Start()
     {
         characterMovement = GetComponent<CharacterMovementScript>();
         stats = GetComponent<CharacterStatsScript>();
         mainFlower = GameManager.instance.mainFlower;
         animator = GetComponent<Animator>();
-        
 
+        cooldown = attackDelay;
         characterMovement.onEnemyTarget += (EnemyBehaviourScript en) => { TargetEnemy(en); };
 
         StartCoroutine(DamageOnOutsideZone());
     }
     private void Update()
     {
+        cooldown -= Time.deltaTime;
         HydrateFlowerIfCan();
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 dir = Vector3.Normalize((Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position));
+            if (cooldown <= 0)
+            {
+                Vector3 dir = Vector3.Normalize((Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position));
 
-            characterMovement.StopMovement();
-            animator.SetFloat("Horizontal", -dir.x);
-            animator.SetFloat("Vertical", -dir.y);
-            if (attackAudio != null)
-                attackAudio.time = 0.15f;
+                characterMovement.StopMovement();
+                animator.SetFloat("Horizontal", -dir.x);
+                animator.SetFloat("Vertical", -dir.y);
+                if (attackAudio != null)
+                    attackAudio.time = 0.15f;
                 attackAudio.Play();
-            animator.SetTrigger("Attack");
+                animator.SetTrigger("Attack");
+                cooldown = attackDelay;
+            }
 
         }
     }

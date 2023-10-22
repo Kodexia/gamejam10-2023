@@ -69,6 +69,9 @@ public class EnemyBehaviourScript : MonoBehaviour
 
             yield return new WaitForSeconds(enemyStats.attackDelay);
         }
+
+        animator.SetFloat("Horizontal", 0);
+        animator.SetFloat("Vertical", 0);
     }
     private void UpdateSpriteDirection()
     {
