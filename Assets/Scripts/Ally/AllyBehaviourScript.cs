@@ -21,6 +21,8 @@ public class AllyBehaviourScript : MonoBehaviour
     bool isAttacking = false;
     Animator animator;
     SpriteRenderer renderer;
+    [SerializeField]
+    AudioSource attackAudio;
 
     string enemyTag;
     private void Start()
@@ -68,6 +70,7 @@ public class AllyBehaviourScript : MonoBehaviour
 
             animator.SetFloat("Horizontal", dir.x);
             animator.SetFloat("Vertical", dir.y);
+            attackAudio.Play();
             animator.SetTrigger("Attack");
 
             yield return new WaitForSeconds(enemyStats.attackDelay);

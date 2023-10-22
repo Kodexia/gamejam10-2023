@@ -1272,6 +1272,14 @@ PrefabInstance:
       propertyPath: waterBar
       value: 
       objectReference: {fileID: 7848747155736696812}
+    - target: {fileID: 2754481313974702762, guid: 1e7f39b865cd54f4b94412cea2b44612, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 32.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754481313974702762, guid: 1e7f39b865cd54f4b94412cea2b44612, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.8
+      objectReference: {fileID: 0}
     - target: {fileID: 8025377963708668694, guid: 1e7f39b865cd54f4b94412cea2b44612, type: 3}
       propertyPath: m_Name
       value: AttackingPlayer
@@ -2430,6 +2438,7 @@ MonoBehaviour:
   waterRadius: 3
   maxWaterLevel: 100
   type: 0
+  addWaterFromPlayerSound: {fileID: 0}
 --- !u!331 &3449822195842384511
 SpriteMask:
   m_ObjectHideFlags: 0
