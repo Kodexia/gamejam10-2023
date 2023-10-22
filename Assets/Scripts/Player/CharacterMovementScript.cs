@@ -33,7 +33,7 @@ public class CharacterMovementScript : MonoBehaviour
             Vector3 mousePositionInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             movePosition = mousePositionInWorld;
             movePosition.z = 0;
-            if (moveAudio != null) moveAudio.Play();
+            if (moveAudio != null && moveAudio.isPlaying == false) moveAudio.Play();
 
             // Checker, if you hit an enemy
             RaycastHit2D clickRaycast = Physics2D.Raycast(mousePositionInWorld, Vector3.forward * 50, 50);
