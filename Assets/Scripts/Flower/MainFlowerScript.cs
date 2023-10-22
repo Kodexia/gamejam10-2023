@@ -35,6 +35,7 @@ public class MainFlowerScript : MonoBehaviour
 
     void Update()
     {
+        //BudSpawnerManager.instance.SpawnNewFlowerBud(flowerBudPrefabDefensive);
         testDmg();
         barScript.UpdateHealthbar(flower.Health, flower.MaxHealth);
     }
@@ -51,7 +52,7 @@ public class MainFlowerScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag(GameManager.instance.playerTag))
         {
-            //BudSpawnerManager.instance.SpawnNewFlowerBud(flowerBudPrefabDefensive);
+            BudSpawnerManager.instance.SpawnNewFlowerBud(flowerBudPrefabDefensive);
             //EnemySpawnerManager.instance.ChangeSpawnRate(0.001f);
 
             //Debug.Log("Player has collided with the flower!");
