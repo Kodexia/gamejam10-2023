@@ -1,12 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Video : MonoBehaviour
 {
-    [SerializeField] float delay = 37;
+    [field: SerializeField] float delay = 37;
+    [field: SerializeField] float holdToSkipTime = 37;
+    [field: SerializeField] Image fillImage;
+    [field: SerializeField] Color fillColor;
+    [field: SerializeField] TMP_Text text;
+    [field: SerializeField] GameObject skipEmpty;
+    private float buttonHeld = 0;
     void Start()
     {
         Invoke("Load", delay);
@@ -14,14 +19,36 @@ public class Video : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.E))
         {
-            Load();
+            buttonHeld += Time.deltaTime;
+            if (buttonHeld > holdToSkipTime)
+                Load();
+
+            UpdateUI();
+        }
+        else
+        {
+            buttonHeld = 0;
+            if (skipEmpty.activeInHierarchy)
+                skipEmpty.SetActive(false);
         }
     }
     
     private void Load()
     {
         SceneManager.LoadScene("LoadingScreen");
+    }
+
+    private void UpdateUI()
+    {
+        float fillAmount = buttonHeld / holdToSkipTime;
+
+        fillImage.fillAmount = fillAmount;
+        fillImage.color = fillColor;
+        text.color = fillColor;
+
+        if (!skipEmpty.activeInHierarchy)
+            skipEmpty.SetActive(true);
     }
 }
