@@ -540,7 +540,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 83f08374b506b5f4a9422d0c9347961f, type: 3}
   - {fileID: 21300000, guid: 9d36688d908949642bb40a7cbac3f656, type: 3}
   - {fileID: 21300000, guid: 6cdc2a4ebceb5134eaf105908d2268d9, type: 3}
-  attackAudio: {fileID: 0}
+  attackAudio: {fileID: 70949139776692777, guid: da47c160d6930624bbe4dd94cb11dbba, type: 3}
 --- !u!114 &5343903689971154672
 MonoBehaviour:
   m_ObjectHideFlags: 0
