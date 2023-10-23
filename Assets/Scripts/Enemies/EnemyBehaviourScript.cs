@@ -31,33 +31,31 @@ public class EnemyBehaviourScript : MonoBehaviour
     }
     private void Update()
     {
-        //if (!hasTarget)
-            targetFlower = FindClosestFlowerWithPriority(3);
-        //else
-        //{
+        targetFlower = FindClosestFlowerWithPriority(3);
+        if (!isAttacking)
             UpdateSpriteDirection();
 
-            float distance = Vector3.Distance(transform.position, targetPos);
-            if (distance <= 0.3f)
+        float distance = Vector3.Distance(transform.position, targetPos);
+        if (distance <= 0.3f)
+        {
+            if (!isAttacking)
             {
-                if (!isAttacking)
-                {
-                    hasTarget = false;
-                    isAttacking = true;
-                    StartCoroutine(Attack(targetPos - transform.position));
-                    // implement the change of target on destroyed flower
-                }
+                hasTarget = false;
+                isAttacking = true;
+                StartCoroutine(Attack(targetPos - transform.position));
+                // implement the change of target on destroyed flower
             }
-            else
-            {
-                this.transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * enemyStats.movementSpeed);
-                isAttacking = false;
-            }
+        }
+        else
+        {
+            this.transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * enemyStats.movementSpeed);
+            isAttacking = false;
+        }
         //}
     }
     private IEnumerator Attack(Vector3 direction)
     {
-        while(isAttacking)
+        while (isAttacking)
         {
             Vector3 dir = Vector3.Normalize(direction);
 

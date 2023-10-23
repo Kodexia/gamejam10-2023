@@ -39,7 +39,8 @@ public class AllyBehaviourScript : MonoBehaviour
         else
         {
             Vector3 targetPos = targetEnemy.transform.position;
-            UpdateSpriteDirection();
+            if (!isAttacking)
+                UpdateSpriteDirection();
 
             float distance = Vector3.Distance(transform.position, targetPos);
             if (distance <= 0.3f)
