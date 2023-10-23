@@ -12,6 +12,14 @@ public class Video : MonoBehaviour
         Invoke("Load", delay);
     }
     
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            Load();
+        }
+    }
+    
     private void Load()
     {
         SceneManager.LoadScene("LoadingScreen");
