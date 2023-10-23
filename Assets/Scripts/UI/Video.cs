@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Video : MonoBehaviour
 {
     [field: SerializeField] float delay = 37;
-    [field: SerializeField] float holdToSkipTime = 37;
+    [field: SerializeField] float holdToSkipTime = 2;
     [field: SerializeField] Image fillImage;
     [field: SerializeField] Color fillColor;
     [field: SerializeField] TMP_Text text;

@@ -15,6 +15,7 @@ public class LoadingScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        minLoadingTime += Random.Range(1, 6) * Random.value;
         currentLoadingTime = minLoadingTime;
         StartCoroutine(LoadingText());
     }
