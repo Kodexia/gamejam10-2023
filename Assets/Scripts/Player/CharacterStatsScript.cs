@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class CharacterStatsScript : MonoBehaviour
@@ -45,7 +46,7 @@ public class CharacterStatsScript : MonoBehaviour
     }
     private void Die()
     {
-        // Player dies -> TODO ending screen...
+        SceneManager.LoadScene("SuffocatedScene");
         Debug.Log("You died!");
         Destroy(gameObject);
     }

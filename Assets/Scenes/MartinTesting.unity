@@ -318,6 +318,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1773090167200530173, guid: 1e7f39b865cd54f4b94412cea2b44612, type: 3}
+      propertyPath: <waterSuckSpeed>k__BackingField
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 2934200660739363917, guid: 1e7f39b865cd54f4b94412cea2b44612, type: 3}
       propertyPath: m_Camera
       value: 
@@ -420,6 +424,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 809752668}
+    - target: {fileID: 2297220557965280924, guid: 25623036989520445bd7a43f65c2de96, type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2377753187112702197, guid: 25623036989520445bd7a43f65c2de96, type: 3}
       propertyPath: m_Name
       value: InGameMenuCanvas
@@ -878,6 +886,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 809752668}
+    - target: {fileID: 1413496407849930188, guid: 6f4ffe84a29a4a64a8e07c1dd4da236e, type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2446705731527112881, guid: 6f4ffe84a29a4a64a8e07c1dd4da236e, type: 3}
       propertyPath: m_Name
       value: ChoosePlantCanvas

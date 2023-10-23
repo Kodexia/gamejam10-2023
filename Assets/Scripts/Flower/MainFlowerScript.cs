@@ -23,8 +23,6 @@ public class MainFlowerScript : MonoBehaviour
     [SerializeField]
     AudioSource addWaterFromPlayerSound;
     
-
-
     void Start()
     {
         flower = new FlowerMain(gameObject, radius, hp: 100, priority: 1);
