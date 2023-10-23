@@ -85,7 +85,21 @@ public class MainFlowerScript : MonoBehaviour
     
     public bool IsPlayerInRange(Vector3 playerPosition)
     {
-        return (Vector3.Distance(transform.position, playerPosition) <= radius);
+        bool isMainFlowerInRange = (Vector3.Distance(transform.position, playerPosition) <= radius);
+        if (!isMainFlowerInRange)
+        {
+            GameObject[] tagged = GameObject.FindGameObjectsWithTag(GameManager.instance.flowerTag);
+            foreach (GameObject ob in tagged)
+            {
+                if (Vector3.Distance(playerPosition, ob.transform.position) <= (2 * radius / 3))
+                    return true;
+                else
+                    continue;
+            }
+            return false;
+        }
+        else
+            return isMainFlowerInRange;
     }
 
     public bool IsPlayerInRangeToWater(Vector3 playerPosition)
