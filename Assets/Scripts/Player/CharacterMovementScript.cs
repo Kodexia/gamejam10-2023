@@ -5,7 +5,7 @@ public class CharacterMovementScript : MonoBehaviour
 {
     CharacterStatsScript stats;
     Vector3 movePosition;
-    public Vector3 MoveDirection => ((movePosition-transform.position));
+    public Vector3 MoveDirection => -((movePosition-transform.position));
     public Action<EnemyBehaviourScript> onEnemyTarget;
 
     [SerializeField] public Sprite[] directionalSprites; // Assuming you have 8 sprites in the order: N, NE, E, SE, S, SW, W, NW (9th is stationary)

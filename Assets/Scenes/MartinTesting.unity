@@ -322,6 +322,14 @@ PrefabInstance:
       propertyPath: <waterSuckSpeed>k__BackingField
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 1773090167200530173, guid: 1e7f39b865cd54f4b94412cea2b44612, type: 3}
+      propertyPath: <outsideZoneDamage>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086507451963959283, guid: 1e7f39b865cd54f4b94412cea2b44612, type: 3}
+      propertyPath: acceleration
+      value: 0.23
+      objectReference: {fileID: 0}
     - target: {fileID: 2934200660739363917, guid: 1e7f39b865cd54f4b94412cea2b44612, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1599,7 +1607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1922767395
 MonoBehaviour:
   m_ObjectHideFlags: 0
