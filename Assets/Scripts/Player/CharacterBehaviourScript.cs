@@ -83,6 +83,7 @@ public class CharacterBehaviourScript : MonoBehaviour
             specialRPreview.gameObject.SetActive(false);
             isUsingSpecialR = false;
         }
+        specialRCooldown = stats.specialRDelay;
     }
     void UpdateCooldowns()
     {
