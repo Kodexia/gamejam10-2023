@@ -15,8 +15,13 @@ public class CharacterBehaviourScript : MonoBehaviour
     Animator animator;
     [SerializeField]
     AudioSource attackAudio;
-    private float attackDelay = 1f;
-    float cooldown = 1.5f;
+
+
+    [field: SerializeField] Transform specialRPreview;
+    [field: SerializeField] SpecialR specialR;
+    float meleeCooldown = 0;
+    float specialRCooldown = 0;
+    bool isUsingSpecialR = false;
     void Start()
     {
         characterMovement = GetComponent<CharacterMovementScript>();
@@ -24,18 +29,21 @@ public class CharacterBehaviourScript : MonoBehaviour
         mainFlower = GameManager.instance.mainFlower;
         animator = GetComponent<Animator>();
 
-        cooldown = attackDelay;
-        characterMovement.onEnemyTarget += (EnemyBehaviourScript en) => { TargetEnemy(en); };
+        meleeCooldown = stats.meleeDelay;
+        specialRCooldown = stats.specialRDelay;
+
+
+        //characterMovement.onEnemyTarget += (EnemyBehaviourScript en) => { TargetEnemy(en); };
 
         StartCoroutine(DamageOnOutsideZone());
     }
     private void Update()
     {
-        cooldown -= Time.deltaTime;
+        UpdateCooldowns();
         HydrateFlowerIfCan();
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isUsingSpecialR)
         {
-            if (cooldown <= 0)
+            if (meleeCooldown <= 0)
             {
                 Vector3 dir = Vector3.Normalize((Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position));
 
@@ -46,10 +54,40 @@ public class CharacterBehaviourScript : MonoBehaviour
                     attackAudio.time = 0.15f;
                 attackAudio.Play();
                 animator.SetTrigger("Attack");
-                cooldown = attackDelay;
+                meleeCooldown = stats.meleeDelay;
             }
-
         }
+        if (Input.GetKeyDown(KeyCode.R) && specialRCooldown <= 0)
+            isUsingSpecialR = true;
+        if (isUsingSpecialR)
+            UseSpecialAttackR();
+
+    }
+
+    void UseSpecialAttackR()
+    {
+        if (!specialRPreview.gameObject.activeInHierarchy)
+            specialRPreview.gameObject.SetActive(true);
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 1;
+        specialRPreview.position = mousePos;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            specialR.enabled = true;
+            specialRPreview.gameObject.SetActive(false);
+            isUsingSpecialR = false;
+        }
+        if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            specialRPreview.gameObject.SetActive(false);
+            isUsingSpecialR = false;
+        }
+    }
+    void UpdateCooldowns()
+    {
+        meleeCooldown -= Time.deltaTime;
+        specialRCooldown -= Time.deltaTime;
     }
     void TargetEnemy(EnemyBehaviourScript en)
     {

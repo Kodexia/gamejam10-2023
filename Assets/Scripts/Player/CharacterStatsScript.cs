@@ -16,6 +16,9 @@ public class CharacterStatsScript : MonoBehaviour
     [field: SerializeField] public float waterSuckSpeed { get; private set; } = 0.05f;
     [field: SerializeField] public float waterDrainSpeed { get; private set; } = 1f;
     [field: SerializeField] public float attackDamage { get; private set; } = 2.5f;
+    [field: SerializeField] public float meleeDelay { get; private set; } = 1.5f;
+    [field: SerializeField] public float specialRDelay { get; private set; } = 3f;
+    [field: SerializeField] public float specialRDamage { get; private set; } = 3f;
     public float currentHealth { get; private set; } = 10f;
     public float currentWaterLevel { get; private set; } = 0f;
 

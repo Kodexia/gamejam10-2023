@@ -11,6 +11,7 @@ public class MainFlowerScript : MonoBehaviour
     [SerializeField] private float waterRadius = 3f;
     [field: SerializeField] private float maxWaterLevel = 100f;
     [SerializeField] FlowerType type;
+    [field: SerializeField] Material grassShaderMaterial;
 
     private GameObject _chooseFlowerCanvas;
 
@@ -38,6 +39,13 @@ public class MainFlowerScript : MonoBehaviour
     {
         _barScript.UpdateHealthbar(flower.Health, flower.MaxHealth);
         Debug.Log($"Main flower: {flower.Health}HP");
+        UpdateMaterial();
+    }
+
+    void UpdateMaterial()
+    {
+        grassShaderMaterial.SetFloat("Strength", (flower.Health/flower.MaxHealth)/2);
+        grassShaderMaterial.SetFloat("_Strength", (flower.Health/flower.MaxHealth)/2);
     }
 
     public void TakeDamage(float dmg)
