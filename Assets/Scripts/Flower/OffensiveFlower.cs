@@ -1,19 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OffensiveFlower : FlowerScript
 {
     [SerializeField]
     private GameObject alliedPrefab;
+    [field: SerializeField] Image fillCooldown;
+    float cooldown;
     
     protected override void FlowerStart()
     {
+        cooldown = 30;
         StartCoroutine(ConvertEnemiesInRadius(5));
     }
 
     protected override void FlowerUpdate()
     {
+        cooldown -= Time.deltaTime;
+        float fillAmount = cooldown/30;
+        fillCooldown.fillAmount = fillAmount;
         // Isn't needed right now
     }
 
@@ -42,6 +49,7 @@ public class OffensiveFlower : FlowerScript
                 GameObject newAlly = Instantiate(alliedPrefab, enemyToConvert.transform.position, Quaternion.identity);
                 Destroy(enemyToConvert);
             }
+            cooldown = delay;
         }
     }
     

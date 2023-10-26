@@ -65,7 +65,7 @@ Material:
     - _SmoothnesIn: 0.1
     - _SmoothstepEdge: 0.1
     - _StepIn: 0.5
-    - _Strength: 0.5
+    - _Strength: 0.26
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}
     - _Lerp: {r: -1, g: -1, b: 0, a: 0}
